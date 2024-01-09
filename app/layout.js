@@ -1,7 +1,6 @@
-import { Inter } from "next/font/google";
+import SocialMedia from "@/components/SocialMedia";
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
+import Navbar from "@/components/Navbar";
 
 export const metadata = {
   title: "Tantrotsav 2024",
@@ -11,7 +10,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className="bg-black flex h-screen flex-col text-white">
+        <Navbar />
+        <SocialMedia />
+        <div className="flex-1 p-20">{children}</div>
+      </body>
     </html>
   );
 }
