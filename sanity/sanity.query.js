@@ -12,6 +12,11 @@ export async function getEvents() {
       firstPrice,
       secondPrice,
       thirdPrice
-    }`
+    }`,
+    {
+      next: {
+        revalidate: 3, // look for updates to revalidate cache every hour
+      },
+    }
   );
 }
