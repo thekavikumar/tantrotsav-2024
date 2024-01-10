@@ -1,5 +1,4 @@
 import { getEvents } from "@/sanity/sanity.query";
-
 import EventCard from "@/components/EventCard";
 
 export default async function Page() {

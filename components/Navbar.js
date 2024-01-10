@@ -2,10 +2,24 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Login from "./Login";
+import { auth } from "../firebase";
 
 export default function Navbar() {
+	const userName = auth.currentUser;
+	const [user, setUser] = useState(null);
 	const pathname = usePathname();
+
 	const [isScrolled, setIsScrolled] = useState(false);
+	useEffect(() => {
+		const unsubscribe = auth.onAuthStateChanged((user) => {
+			setUser(user);
+		});
+
+		return () => {
+			unsubscribe();
+		};
+	}, []);
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -26,6 +40,7 @@ export default function Navbar() {
 			window.removeEventListener("scroll", handleScroll);
 		};
 	}, []); // Em
+
 	return (
 		<div
 			className={`fixed w-screen top-0 text-white flex items-center justify-between px-[100px] py-8 transition-all duration-300 ${
@@ -35,13 +50,13 @@ export default function Navbar() {
 			}`}
 		>
 			<h1 className="text-3xl">TANTROTSAV</h1>
-			<div className="flex items-center gap-6 font-medium">
+			<div className="flex items-center gap-6 font-semibold">
 				<Link
 					href="/"
 					className={
 						pathname === "/"
-							? "bg-white px-3 rounded-md text-black"
-							: "px-3 rounded-md hover:bg-white hover:text-black transition-all duration-300"
+							? "bg-white px-3  rounded-md text-black"
+							: "px-3  rounded-md hover:bg-white hover:text-black transition-all duration-300"
 					}
 				>
 					HOME
@@ -50,8 +65,8 @@ export default function Navbar() {
 					href="/events"
 					className={
 						pathname === "/events"
-							? "bg-white px-3 rounded-md text-black"
-							: "px-3   rounded-md hover:bg-white hover:text-black transition-all duration-300"
+							? "bg-white px-3  rounded-md text-black"
+							: "px-3    rounded-md hover:bg-white hover:text-black transition-all duration-300"
 					}
 				>
 					EVENTS
@@ -60,8 +75,8 @@ export default function Navbar() {
 					href="/gallery"
 					className={
 						pathname === "/gallery"
-							? "bg-white px-3 rounded-md text-black"
-							: "px-3 rounded-md hover:bg-white hover:text-black transition-all duration-300"
+							? "bg-white px-3  rounded-md text-black"
+							: "px-3  rounded-md hover:bg-white hover:text-black transition-all duration-300"
 					}
 				>
 					GALLERY
@@ -70,16 +85,38 @@ export default function Navbar() {
 					href="/about"
 					className={
 						pathname === "/about"
-							? "bg-white px-3 rounded-md text-black"
-							: "px-3 rounded-md hover:bg-white hover:text-black transition-all duration-300"
+							? "bg-white px-3  rounded-md text-black"
+							: "px-3  rounded-md hover:bg-white hover:text-black transition-all duration-300"
 					}
 				>
 					ABOUT
 				</Link>
+				{userName && (
+					<Link
+						href="/profile"
+						className={
+							pathname === "/profile"
+								? "bg-white px-3  rounded-md text-black"
+								: "px-3  rounded-md hover:bg-white hover:text-black transition-all duration-300"
+						}
+					>
+						PROFILE
+					</Link>
+				)}
+				{userName && (
+					<Link
+						href="/cart"
+						className={
+							pathname === "/cart"
+								? "bg-white px-3  rounded-md text-black"
+								: "px-3  rounded-md hover:bg-white hover:text-black transition-all duration-300"
+						}
+					>
+						CART
+					</Link>
+				)}
 			</div>
-			<div className="bg-white text-black text-lg px-4 py-1 rounded-md border-white border-2 hover:bg-transparent hover:text-white font-semibold  transition-all duration-200 cursor-pointer">
-				REGISTER
-			</div>
+			<Login />
 		</div>
 	);
 }
