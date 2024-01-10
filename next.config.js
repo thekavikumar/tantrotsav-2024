@@ -12,20 +12,12 @@ const nextConfig = {
         hostname: "static-00.iconduck.com",
         pathname: "**",
       },
-    ],
-  },
-  async headers() {
-    return [
       {
-        source: "/",
-        headers: [
-          {
-            key: "Cross-Origin-Embedder-Policy",
-            value: "unsafe-none",
-          },
-        ],
+        protocol: "https",
+        hostname: "lh3.googleusercontent.com",
+        pathname: "**",
       },
-    ];
+    ],
   },
 };
 

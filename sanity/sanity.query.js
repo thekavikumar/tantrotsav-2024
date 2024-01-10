@@ -15,7 +15,7 @@ export async function getEvents() {
     }`,
     {
       next: {
-        revalidate: 3, // look for updates to revalidate cache every hour
+        revalidate: 1, // look for updates to revalidate cache every hour
       },
     }
   );

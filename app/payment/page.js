@@ -7,7 +7,7 @@ import toast, { Toaster } from "react-hot-toast";
 
 export default function Page() {
   const [orderId, setOrderId] = useState();
-  const [amount, setAmount] = useState();
+  const [amount, setAmount] = useState(2);
   const [loading, setLoading] = useState(false);
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -43,7 +43,7 @@ export default function Page() {
             data?.orderStatus == "Aborted" ||
             data?.orderStatus == "Failure"
           ) {
-            toast.error("Order Failed!  ");
+            toast.error("Order Failed!");
           }
         } else {
           // The record does not exist at the specified path
@@ -57,7 +57,7 @@ export default function Page() {
 
   return (
     <main>
-      <Toaster position="top-right" reverseOrder={false} />
+      <Toaster position="bottom-right" reverseOrder={false} />
       <form
         onSubmit={handleSubmit}
         className="flex items-center justify-center h-screen flex-col gap-4"
@@ -65,6 +65,7 @@ export default function Page() {
         <input
           type="text"
           name="order_id"
+          className="text-black"
           id="order_id"
           placeholder="order id"
           onChange={(e) => setOrderId(e.target.value)}
@@ -74,6 +75,7 @@ export default function Page() {
           name="amount"
           id="amount"
           placeholder="amount"
+          className="text-black"
           onChange={(e) => setAmount(e.target.value)}
         />
         <button

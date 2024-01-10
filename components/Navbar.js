@@ -2,9 +2,12 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Login from "./Login";
+import { useUserDetails } from "@/context/zustand";
 
 export default function Navbar() {
   const pathname = usePathname();
+  const { user } = useUserDetails();
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -76,10 +79,20 @@ export default function Navbar() {
         >
           ABOUT
         </Link>
+        {user && (
+          <Link
+            href="/profile"
+            className={
+              pathname === "/profile"
+                ? "bg-white px-3 py-1 rounded-sm text-black"
+                : "px-3 py-1 rounded-sm hover:bg-white hover:text-black transition-all duration-300"
+            }
+          >
+            PROFILE
+          </Link>
+        )}
       </div>
-      <div className="bg-white text-black text-lg px-4 py-1 rounded-md border-white border-2 hover:bg-transparent hover:text-white font-semibold  transition-all duration-200 cursor-pointer">
-        REGISTER
-      </div>
+      <Login />
     </div>
   );
 }

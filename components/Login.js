@@ -33,12 +33,11 @@ export default function Login() {
   }
 
   return (
-    <main className="flex h-screen items-center justify-center">
-      {user && <h1>{user.displayName}</h1>}
+    <main className="flex items-center justify-center">
       <div className="">
         {user == null && (
           <button
-            className="flex items-center gap-3 px-6 py-4 rounded-md text-white hover:shadow-lg hover:bg-white border border-black duration-200 hover:text-black bg-black"
+            className="flex items-center gap-4 text-md font-semibold px-7 py-2 rounded-md hover:text-black hover:shadow-lg hover:bg-white border border-white duration-200 text-white "
             onClick={handleLogin}
           >
             <Image
@@ -49,12 +48,12 @@ export default function Login() {
               height={20}
               alt="google icon"
             />
-            Login With Google
+            Login
           </button>
         )}
         {user != null && (
           <button
-            className="flex items-center gap-3 px-6 py-4 rounded-md text-white hover:shadow-lg hover:bg-white border border-black duration-200 hover:text-black bg-black"
+            className="flex items-center gap-4 text-md font-semibold px-7 py-2 rounded-md hover:text-black hover:shadow-lg hover:bg-white border border-white duration-200 text-white "
             onClick={handleSignOut}
           >
             <Image
