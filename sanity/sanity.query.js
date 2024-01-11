@@ -2,7 +2,7 @@ import { groq } from "next-sanity";
 import { client } from "./lib/client";
 
 export async function getEvents() {
-  return client.fetch(
+  return await client.fetch(
     groq`*[_type == "event"]{
       _id,
       eventTitle,
@@ -11,12 +11,10 @@ export async function getEvents() {
       venue,
       firstPrice,
       secondPrice,
-      thirdPrice
+      thirdPrice,
+      clubImage {alt, "image": asset->url},
+      club
     }`,
-    {
-      next: {
-        revalidate: 1, // look for updates to revalidate cache every hour
-      },
-    }
+    { cache: "no-store" }
   );
 }

@@ -13,8 +13,15 @@ export default async function Page() {
               <h1>{event.eventTitle}</h1>
               <h1>{event.eventDescription}</h1>
               <h1>{event.venue}</h1>
+              <h1>{event.club}</h1>
               <Image
                 src={event.eventImage.image}
+                height={100}
+                width={100}
+                alt="image"
+              />
+              <Image
+                src={event.clubImage.image}
                 height={100}
                 width={100}
                 alt="image"

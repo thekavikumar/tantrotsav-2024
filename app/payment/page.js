@@ -15,8 +15,8 @@ export default function Page() {
       console.log("started");
 
       const response = await axios.post(
-        "http://127.0.0.1:3000/ccavRequestHandler",
-        `merchant_id=2156706&order_id=${orderId}&currency=INR&amount=${amount}&redirect_url=http%3A%2F%2F127.0.0.1%3A3000%2FccavResponseHandler&cancel_url=http%3A%2F%2F127.0.0.1%3A3000%2FccavResponseHandler&language=EN`
+        "https://ccavenues.vercel.app/ccavRequestHandler",
+        `merchant_id=2156706&order_id=${orderId}&currency=INR&amount=${amount}&redirect_url=https%3A%2F%2Fccavenues.vercel.app%2FccavResponseHandler&cancel_url=https%3A%2F%2Fccavenues.vercel.app%2FccavResponseHandler&language=EN`
       );
       // const response = await axios.post(
       //   "http://127.0.0.1:3000/ccavRequestHandler",
