@@ -20,6 +20,7 @@
     "fs": "^0.0.1-security",
     "http": "^0.0.1-security",
     "next": "14.0.4",
+    "next-auth": "^4.24.5",
     "next-sanity": "^7.0.7",
     "querystring": "^0.2.1",
     "react": "^18",

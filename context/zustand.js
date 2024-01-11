@@ -1,7 +1,9 @@
 import { create } from "zustand";
 
-export const useUserDetails = create((set) => ({
-  user: null,
-  setUser: (newUser) => set({ user: newUser }),
-  signOutUser: () => set({ user: null }),
+export const useCartDetails = create((set) => ({
+	cart: [],
+	setCart: (item) => set((state) => ({ cart: [...state.cart, item] })),
+	removeAll: () => set({ cart: [] }),
+	removeSelected: (id) =>
+		set((state) => ({ cart: state.cart.filter((item) => item._id !== id) })),
 }));
