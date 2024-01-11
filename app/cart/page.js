@@ -61,6 +61,8 @@ function Page() {
             // Assuming 'items' is an array within the cart
             orders: [...currentOrders.orders, newOrderItem],
           });
+          set(userCartRef, []);
+          setCart([]);
         } else {
           // No existing cart, create a new cart
           const newOrderItem = {
@@ -71,6 +73,8 @@ function Page() {
           };
 
           set(setProfileRef, newOrderItem);
+          set(userCartRef, []);
+          setCart([]);
         }
       })
       .catch((error) => {
