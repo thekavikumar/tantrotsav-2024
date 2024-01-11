@@ -26,6 +26,12 @@ const event = {
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: "registrationFee",
+      title: "Registration Fee",
+      type: "string",
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
       name: "firstPrice",
       title: "FirstPrice",
       type: "string",
