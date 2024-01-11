@@ -1,14 +1,13 @@
 "use client";
 import { useUserDetails } from "@/context/zustand";
 import { db } from "@/firebase";
-import { auth } from "@/firebase";
 import { get, ref, set, update } from "firebase/database";
 import toast from "react-hot-toast";
 
 const EventCard = ({ event }) => {
   const { user } = useUserDetails();
   const addToCart = () => {
-    const userId = user.uid;
+    const userId = user?.uid;
     const userCartRef = ref(db, "users/" + userId);
 
     // Use the get function to retrieve the data
@@ -19,6 +18,7 @@ const EventCard = ({ event }) => {
           const currentCart = snapshot.val();
 
           const newCartItem = {
+            id: event._id,
             eventImage: event.eventImage,
             eventTitle: event.eventTitle,
             registrationFee: event.registrationFee,
@@ -37,6 +37,7 @@ const EventCard = ({ event }) => {
           const newCart = {
             cart: [
               {
+                id: event._id,
                 eventImage: event.eventImage,
                 eventTitle: event.eventTitle,
                 registrationFee: event.registrationFee,

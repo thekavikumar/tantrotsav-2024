@@ -3,10 +3,8 @@ import { auth } from "../firebase";
 
 export const useCartDetails = create((set) => ({
   cart: [],
-  setCart: (item) => set((state) => ({ cart: [...state.cart, item] })),
+  setCart: (item) => set((state) => ({ cart: item })),
   removeAll: () => set({ cart: [] }),
-  removeSelected: (id) =>
-    set((state) => ({ cart: state.cart.filter((item) => item._id !== id) })),
 }));
 
 export const useUserDetails = create((set) => ({
