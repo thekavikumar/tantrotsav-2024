@@ -30,6 +30,7 @@
     "sanity": "^3.23.4",
     "short-unique-id": "^5.0.3",
     "styled-components": "^6.1.6",
+    "typewriter-effect": "^2.21.0",
     "zustand": "^4.4.7"
   },
   "devDependencies": {

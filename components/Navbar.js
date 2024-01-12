@@ -5,10 +5,12 @@ import { usePathname } from "next/navigation";
 import Login from "./Login";
 import { auth } from "../firebase";
 import { useUserDetails } from "@/context/zustand";
+import Typewriter from "typewriter-effect";
 
 export default function Navbar() {
   const { user, setUser, signOutUser } = useUserDetails();
   const pathname = usePathname();
+
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setUser(user);
@@ -47,9 +49,23 @@ export default function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <h1 className="text-4xl font-semibold" id="logo">
-        TANTROTSAV
-      </h1>
+      <div className="relative text-4xl font-semibold">
+        <h1 className="opacity-0">தந்திரோத்சவ்</h1>
+        <div className="absolute top-0" id="logo">
+          <Typewriter
+            options={{
+              strings: [
+                "தந்திரோத்சவ்",
+                "tantrotsav",
+                "తంత్రోత్సవం",
+                "तंत्रोत्सव",
+              ],
+              autoStart: true,
+              loop: true,
+            }}
+          />
+        </div>
+      </div>
       <div className="flex items-center gap-6 font-semibold">
         <Link
           href="/"
