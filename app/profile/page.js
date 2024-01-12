@@ -4,7 +4,7 @@ import { useUserDetails } from "@/context/zustand";
 import Image from "next/image";
 import React from "react";
 
-function page() {
+function Page() {
   const { user } = useUserDetails();
   console.log(user);
   return (
@@ -16,4 +16,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;
