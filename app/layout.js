@@ -2,6 +2,7 @@ import SocialMedia from "@/components/SocialMedia";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { Toaster } from "react-hot-toast";
+import Launch from "@/components/Launch";
 
 export const metadata = {
   title: "Tantrotsav 2024",
@@ -12,10 +13,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="bg-black flex flex-col text-white">
-        <Navbar />
+        {/* <Navbar />
         <SocialMedia />
-        <Toaster />
-        <div className="flex-1">{children}</div>
+        <Toaster /> */}
+        {/* <div className="flex-1">{children}</div> */}
+        <div className="flex-1">
+          <Launch />
+        </div>
       </body>
     </html>
   );

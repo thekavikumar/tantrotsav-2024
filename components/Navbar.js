@@ -56,7 +56,7 @@ export default function Navbar() {
             options={{
               strings: [
                 "தந்திரோத்சவ்",
-                "tantrotsav",
+                "Tantrotsav",
                 "తంత్రోత్సవం",
                 "तंत्रोत्सव",
               ],
