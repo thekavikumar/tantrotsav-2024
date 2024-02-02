@@ -4,7 +4,7 @@ import "./Launch.css";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import Image from "next/image";
-import logo from "./logo.png";
+import logo from "./logo1.png";
 import { FaInstagram, FaLinkedin } from "react-icons/fa";
 import { FaFacebook, FaTwitter } from "react-icons/fa6";
 

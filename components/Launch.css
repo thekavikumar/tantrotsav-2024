@@ -10,7 +10,7 @@ body {
   width: 100%;
   min-height: 100vh;
   position: relative;
-  background: radial-gradient(ellipse at left, #1b2735 0%, #090a0f 100%);
+  background: black;
 }
 
 .stars {
