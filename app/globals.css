@@ -1,8 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Iceland&family=Share+Tech&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url("https://fonts.googleapis.com/css2?family=Share+Tech&display=swap");
 
 @font-face {
   font-family: "saman";
@@ -10,8 +9,8 @@
   font-weight: normal;
 }
 
-* {
-  font-family: "Share Tech", sans-serif;
+.la {
+  font-family: "Iceland", sans-serif !important;
 }
 
 #logo {

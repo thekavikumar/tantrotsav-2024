@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  background: radial-gradient(ellipse at left, #1b2735 0%, #090a0f 100%);
+}
+
+.stars {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: white;
+  top: calc(1px * var(--y));
+  left: calc(1px * var(--x));
+}
