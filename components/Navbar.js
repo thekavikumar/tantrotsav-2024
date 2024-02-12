@@ -5,134 +5,134 @@ import { usePathname } from "next/navigation";
 import Login from "./Login";
 import { auth } from "../firebase";
 import { useUserDetails } from "@/context/zustand";
-import Typewriter from "typewriter-effect";
+import { FaBars } from "react-icons/fa6";
+import logo from "./logo1.png";
+import logo1 from "./logo2.png";
+import Image from "next/image";
 
 export default function Navbar() {
-  const { user, setUser, signOutUser } = useUserDetails();
-  const pathname = usePathname();
+	const { user, setUser, signOutUser } = useUserDetails();
+	const [openNav, setOpenNav] = React.useState(false);
+	const pathname = usePathname();
 
-  useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
-      setUser(user);
-    });
+	useEffect(() => {
+		const unsubscribe = auth.onAuthStateChanged((user) => {
+			setUser(user);
+		});
 
-    return () => unsubscribe(); // Cleanup on unmount
-  }, []);
+		return () => unsubscribe(); // Cleanup on unmount
+	}, []);
 
-  const [isScrolled, setIsScrolled] = useState(false);
+	const [isScrolled, setIsScrolled] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
+	useEffect(() => {
+		const handleScroll = () => {
+			const scrollY = window.scrollY;
 
-      // Set the threshold value based on your design needs
-      const threshold = 0;
+			// Set the threshold value based on your design needs
+			const threshold = 0;
 
-      // Update state based on scroll position
-      setIsScrolled(scrollY > threshold);
-    };
+			// Update state based on scroll position
+			setIsScrolled(scrollY > threshold);
+		};
 
-    // Attach the event listener when the component mounts
-    window.addEventListener("scroll", handleScroll);
+		// Attach the event listener when the component mounts
+		window.addEventListener("scroll", handleScroll);
 
-    // Cleanup the event listener when the component unmounts
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []); // Em
+		// Cleanup the event listener when the component unmounts
+		return () => {
+			window.removeEventListener("scroll", handleScroll);
+		};
+	}, []); // Em
 
-  return (
-    <div
-      className={`fixed z-50 w-screen top-0 text-white flex items-center justify-between px-[100px] py-5 transition-all duration-300 ${
-        isScrolled
-          ? "bg-gray-600 bg-opacity-10 backdrop-filter shadow-2xl backdrop-blur-md bg-blur"
-          : "bg-transparent"
-      }`}
-    >
-      <div className="relative text-4xl font-semibold">
-        <h1 className="opacity-0">தந்திரோத்சவ்</h1>
-        <div className="absolute top-0" id="logo">
-          <Typewriter
-            options={{
-              strings: [
-                "தந்திரோத்சவ்",
-                "Tantrotsav",
-                "తంత్రోత్సవం",
-                "तंत्रोत्सव",
-              ],
-              autoStart: true,
-              loop: true,
-            }}
-          />
-        </div>
-      </div>
-      <div className="flex items-center gap-6 font-semibold">
-        <Link
-          href="/"
-          className={
-            pathname === "/"
-              ? "bg-white px-3  rounded-md text-black"
-              : "px-3  rounded-md hover:bg-white hover:text-black transition-all duration-300"
-          }
-        >
-          HOME
-        </Link>
-        <Link
-          href="/events"
-          className={
-            pathname === "/events"
-              ? "bg-white px-3  rounded-md text-black"
-              : "px-3    rounded-md hover:bg-white hover:text-black transition-all duration-300"
-          }
-        >
-          EVENTS
-        </Link>
-        <Link
-          href="/gallery"
-          className={
-            pathname === "/gallery"
-              ? "bg-white px-3  rounded-md text-black"
-              : "px-3  rounded-md hover:bg-white hover:text-black transition-all duration-300"
-          }
-        >
-          GALLERY
-        </Link>
-        <Link
-          href="/about"
-          className={
-            pathname === "/about"
-              ? "bg-white px-3  rounded-md text-black"
-              : "px-3  rounded-md hover:bg-white hover:text-black transition-all duration-300"
-          }
-        >
-          ABOUT
-        </Link>
-        {user && (
-          <Link
-            href="/profile"
-            className={
-              pathname === "/profile"
-                ? "bg-white px-3  rounded-md text-black"
-                : "px-3  rounded-md hover:bg-white hover:text-black transition-all duration-300"
-            }
-          >
-            PROFILE
-          </Link>
-        )}
-        {user && (
-          <Link
-            href="/cart"
-            className={
-              pathname === "/cart"
-                ? "bg-white px-3  rounded-md text-black"
-                : "px-3  rounded-md hover:bg-white hover:text-black transition-all duration-300"
-            }
-          >
-            CART
-          </Link>
-        )}
-      </div>
-      <Login />
-    </div>
-  );
+	const navState = () => {
+		setOpenNav(!openNav);
+	};
+
+	return (
+		<div
+			className={`absolute z-50 w-screen top-0 text-white flex items-center justify-between px-[10px] lg:px-[100px] py-5 transition-all duration-300 ${
+				isScrolled
+					? "bg-gray-600 bg-opacity-10 backdrop-filter shadow-2xl backdrop-blur-md bg-blur"
+					: "bg-transparent"
+			}`}
+		>
+			<Image src={logo1} width={230} alt="logo" />
+			<FaBars className="h-6 w-6 lg:hidden" onClick={navState} />
+
+			<div
+				className={`absolute lg:static flex flex-col lg:flex-row justify-center items-center gap-6 font-semibold  w-full bg-black ${
+					openNav
+						? "top-[90px]"
+						: "-top-[1000px] transition-all ease-in-out duration-300"
+				} overflow-hidden`}
+			>
+				<Link
+					href="/"
+					className={
+						pathname === "/"
+							? "bg-white px-3  rounded-md text-black"
+							: "px-3  rounded-md hover:bg-white hover:text-black transition-all duration-300"
+					}
+				>
+					HOME
+				</Link>
+				<Link
+					href="/events"
+					className={
+						pathname === "/events"
+							? "bg-white px-3  rounded-md text-black"
+							: "px-3    rounded-md hover:bg-white hover:text-black transition-all duration-300"
+					}
+				>
+					EVENTS
+				</Link>
+				<Link
+					href="/gallery"
+					className={
+						pathname === "/gallery"
+							? "bg-white px-3  rounded-md text-black"
+							: "px-3  rounded-md hover:bg-white hover:text-black transition-all duration-300"
+					}
+				>
+					GALLERY
+				</Link>
+				<Link
+					href="/about"
+					className={
+						pathname === "/about"
+							? "bg-white px-3  rounded-md text-black"
+							: "px-3  rounded-md hover:bg-white hover:text-black transition-all duration-300"
+					}
+				>
+					ABOUT
+				</Link>
+				{user && (
+					<Link
+						href="/profile"
+						className={
+							pathname === "/profile"
+								? "bg-white px-3  rounded-md text-black"
+								: "px-3  rounded-md hover:bg-white hover:text-black transition-all duration-300"
+						}
+					>
+						PROFILE
+					</Link>
+				)}
+				{user && (
+					<Link
+						href="/cart"
+						className={
+							pathname === "/cart"
+								? "bg-white px-3  rounded-md text-black"
+								: "px-3  rounded-md hover:bg-white hover:text-black transition-all duration-300"
+						}
+					>
+						CART
+					</Link>
+				)}
+				<Login />
+			</div>
+		</div>
+	);
 }

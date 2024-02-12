@@ -5,7 +5,7 @@ import { FaXTwitter } from "react-icons/fa6";
 
 const SocialMedia = () => {
 	return (
-		<div className="fixed bottom-[50%] translate-y-[50%] left-6 text-white text-xl font-medium flex flex-col gap-12">
+		<div className="absolute flex lg:flex-col bottom-8 left-[50%] -translate-x-[50%] lg:bottom-[50%] lg:translate-y-[50%] lg:left-10 gap-12 text-white text-xl font-medium">
 			<a
 				href=""
 				className="rounded-full p-3 duration-200 ease-in-out border-2 border-white hover:bg-white hover:text-black"
