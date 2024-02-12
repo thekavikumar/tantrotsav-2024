@@ -1,4 +1,5 @@
 "use client";
+import Launch from "@/components/Launch";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import { useEffect, useMemo, useState } from "react";
@@ -6,9 +7,10 @@ import { useEffect, useMemo, useState } from "react";
 export default function Page() {
   return (
     <div className="bg-black">
-      <div className="">
+      <Launch />
+      {/* <div className="">
         <TsParticales />
-      </div>
+      </div> */}
     </div>
   );
 }
