@@ -21,9 +21,6 @@ export default function Page() {
     toast.success("Profile Updated");
   }
 
-  const { cart } = useCartDetails();
-  console.log(cart);
-
   useEffect(() => {
     if (user?.uid) {
       const userRef = ref(db, "users/" + user.uid + "/userDetails");
@@ -107,11 +104,7 @@ export default function Page() {
           <div className="flex items-center justify-start my-8"></div>
           <div>
             <h1 className="text-3xl text-center font-bold my-14">ORDERS</h1>
-            <div className="flex flex-wrap gap-6">
-              {cart.map((item) => (
-                <EventCard key={item.id} event={item} />
-              ))}
-            </div>
+            <div className="flex flex-wrap gap-6"></div>
           </div>
         </div>
       )}
