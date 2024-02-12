@@ -13,9 +13,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="bg-black flex flex-col text-white">
-        <Navbar />
+        {/* <Navbar />
         <SocialMedia />
-        <Toaster />
+        <Toaster /> */}
         {children}
         {/* <div className="flex-1">{children}</div>
         {/* <div className="flex-1">
