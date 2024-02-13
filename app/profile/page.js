@@ -13,6 +13,7 @@ export default function Page() {
   const { user } = useUserDetails();
   console.log(user);
   const [userDetails, setUserDetails] = useState({ clg: "", phone: "" });
+  const [orders, setOrders] = useState([]);
   function createUserDetails() {
     console.log(userDetails);
     set(ref(db, "users/" + user?.uid), {
@@ -20,6 +21,17 @@ export default function Page() {
     });
     toast.success("Profile Updated");
   }
+  const userOrderRef = ref(db, "users/" + user.uid + "/orders");
+  onValue(userOrderRef, (snapshot) => {
+    if (snapshot.exists()) {
+      // The record exists at the specified path
+      const data = snapshot.val();
+      setOrders(data);
+    } else {
+      // The record does not exist at the specified path
+      console.log("Record does not exist");
+    }
+  });
 
   useEffect(() => {
     if (user?.uid) {
@@ -45,6 +57,7 @@ export default function Page() {
       };
     }
   }, [user?.uid]);
+
   return (
     <div className="p-[130px]">
       {user && (
@@ -104,7 +117,11 @@ export default function Page() {
           <div className="flex items-center justify-start my-8"></div>
           <div>
             <h1 className="text-3xl text-center font-bold my-14">ORDERS</h1>
-            <div className="flex flex-wrap gap-6"></div>
+            <div className="flex flex-wrap gap-6">
+              {orders?.map((order, index) => (
+                <EventCard event={order} key={index} />
+              ))}
+            </div>
           </div>
         </div>
       )}

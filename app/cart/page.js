@@ -165,6 +165,11 @@ function Page() {
           </button>
         </div>
       </div>
+      {cart.length === 0 && (
+        <div className="flex items-center justify-center h-[70vh]">
+          <h1 className="text-3xl font-semibold">No items in the cart</h1>
+        </div>
+      )}
       {cart.length > 0 && (
         <div className=" flex items-center flex-wrap gap-12 ">
           {cart?.map((item, index) => (
