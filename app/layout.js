@@ -15,13 +15,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="bg-black text-white">
-        {/* <ParticleWrapper>
+        <ParticleWrapper>
           <Navbar />
           <SocialMedia />
           <Toaster />
           {children}
-        </ParticleWrapper> */}
-        <Launch />
+        </ParticleWrapper>
         <SpeedInsights />
       </body>
     </html>

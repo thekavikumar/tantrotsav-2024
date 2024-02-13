@@ -5,7 +5,8 @@ import React from "react";
 
 async function Page({ params }) {
   const event = await getEventById(params.event);
-  return <EventCard event={event} />;
+  console.log(event);
+  return <></>;
 }
 
 export default Page;
