@@ -61,7 +61,7 @@ export default function Navbar() {
       <FaBars className="h-6 w-6 lg:hidden" onClick={navState} />
 
       <div
-        className={`absolute lg:static flex flex-col lg:flex-row md:justify-center items-center gap-6 font-semibold  w-full bg-black ${
+        className={`absolute lg:static flex flex-col lg:flex-row md:justify-center items-center gap-6 font-semibold  w-full bg-black md:bg-transparent ${
           openNav
             ? "top-[90px]"
             : "-top-[1000px] transition-all ease-in-out duration-300"

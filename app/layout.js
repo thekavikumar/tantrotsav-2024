@@ -15,16 +15,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="bg-black text-white">
-        <ParticleWrapper>
+        {/* <ParticleWrapper>
           <Navbar />
           <SocialMedia />
           <Toaster />
           {children}
-          {/* <div className="flex-1">{children}</div>
-        {/* <div className="flex-1">
-          <Launch />
-        </div> */}
-        </ParticleWrapper>
+        </ParticleWrapper> */}
+        <Launch />
         <SpeedInsights />
       </body>
     </html>

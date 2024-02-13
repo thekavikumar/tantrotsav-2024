@@ -4,9 +4,10 @@ import "./Launch.css";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import Image from "next/image";
-import logo from "./logo1.png";
+import logo from "./logoMina.png";
 import { FaInstagram, FaLinkedin } from "react-icons/fa";
 import { FaFacebook, FaTwitter } from "react-icons/fa6";
+import Link from "next/link";
 
 const Countdown = ({ targetDate }) => {
   const calculateTimeLeft = () => {
@@ -601,10 +602,18 @@ function Launch() {
           <Countdown targetDate="2024-03-05T00:00:00" />
           <div className="absolute justify-center bottom-[30px]">
             <div className="flex items-center w-screen justify-center gap-6">
-              <FaInstagram className="md:text-3xl text-2xl text-white cursor-pointer hover:text-blue-400 duration-200 ease-in-out" />
-              <FaTwitter className="md:text-3xl text-2xl text-white cursor-pointer hover:text-blue-400 duration-200 ease-in-out" />
-              <FaFacebook className="md:text-3xl text-2xl text-white cursor-pointer hover:text-blue-400 duration-200 ease-in-out" />
-              <FaLinkedin className="md:text-3xl text-2xl text-white cursor-pointer hover:text-blue-400 duration-200 ease-in-out" />
+              <Link href={"https://www.instagram.com/tantrotsav_avv/"}>
+                <FaInstagram className="md:text-3xl text-2xl text-white cursor-pointer hover:text-blue-400 duration-200 ease-in-out" />
+              </Link>
+              <Link href={"https://www.instagram.com/tantrotsav_avv/"}>
+                <FaTwitter className="md:text-3xl text-2xl text-white cursor-pointer hover:text-blue-400 duration-200 ease-in-out" />
+              </Link>
+              <Link href={"https://www.instagram.com/tantrotsav_avv/"}>
+                <FaFacebook className="md:text-3xl text-2xl text-white cursor-pointer hover:text-blue-400 duration-200 ease-in-out" />
+              </Link>
+              <Link href={"https://www.instagram.com/tantrotsav_avv/"}>
+                <FaLinkedin className="md:text-3xl text-2xl text-white cursor-pointer hover:text-blue-400 duration-200 ease-in-out" />
+              </Link>
             </div>
           </div>
         </div>

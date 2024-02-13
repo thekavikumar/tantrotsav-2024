@@ -3,9 +3,11 @@ import { useUserDetails } from "@/context/zustand";
 import { db } from "@/firebase";
 import { get, ref, set, update } from "firebase/database";
 import toast from "react-hot-toast";
+import { useRouter } from "next/router";
 
 const EventCard = ({ event }) => {
   const { user } = useUserDetails();
+  const router = useRouter();
   const addToCart = () => {
     const userId = user?.uid;
     const userCartRef = ref(db, "users/" + userId);
@@ -58,7 +60,12 @@ const EventCard = ({ event }) => {
   };
 
   return (
-    <div className="nft flex items-center cursor-pointer	">
+    <div
+      onClick={() => {
+        router.push(`/events/${event._id}`);
+      }}
+      className="nft flex items-center cursor-pointer	"
+    >
       <div className="main w-full flex items-center gap-3">
         <img className="tokenImage" src={event.eventImage.image} alt="image" />
         <div className="flex items-center w-full justify-between">
