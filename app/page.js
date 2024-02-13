@@ -1,9 +1,31 @@
+"use client";
+import a1 from "../components/astronaut.png";
+import Spline from "@splinetool/react-spline";
+import Image from "next/image";
+import ufo from "../components/ufo.png";
+import logo3 from "../components/logo3.png";
+
 export default function Page() {
-  return (
-    <div className="bg-black">
-      <div className="">
-        <h1>WELCOME TO HOME PAGE</h1>
-      </div>
-    </div>
-  );
+	return (
+		<div className="bg-black">
+			<div className="h-screen w-screen overflow-hidden">
+				<div className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]">
+					<Spline
+						scene="https://prod.spline.design/gTGVvXhoIrBSb1bg/scene.splinecode"
+						className="hidden md:block"
+					/>
+					<Image src={logo3} className="md:hidden" width={200} />
+				</div>
+				<Image
+					src={a1}
+					width={150}
+					className="absolute lg:bottom-9 lg:left-[80px] md:w-[250px] floating bottom-[90px]"
+				/>
+				<Image
+					src={ufo}
+					className="floatingaus absolute top-[200px] right-6 w-[160px] md:w-[250px] lg:top-[130px] lg:right-[380px] "
+				/>
+			</div>
+		</div>
+	);
 }
