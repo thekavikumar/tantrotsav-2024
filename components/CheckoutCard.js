@@ -1,6 +1,7 @@
 "use client";
 import { useCartDetails, useUserDetails } from "@/context/zustand";
 import { db } from "@/firebase";
+import { urlForImage } from "@/sanity/lib/image";
 import { get, ref, set, update } from "firebase/database";
 import toast from "react-hot-toast";
 
@@ -48,7 +49,11 @@ const CheckoutCard = ({ event }) => {
   return (
     <div className="nft flex items-center cursor-pointer	">
       <div className="main w-full flex items-center gap-3">
-        <img className="tokenImage" src={event.eventImage.image} alt="image" />
+        <img
+          className="tokenImage"
+          src={urlForImage(event.eventImage)}
+          alt="image"
+        />
         <div className="flex items-center w-full justify-between">
           <h2 className="title text-lg font-semibold">{event.eventTitle}</h2>
           <h2 className="title text-lg font-semibold">
@@ -66,7 +71,7 @@ const CheckoutCard = ({ event }) => {
         <hr />
         <div className="creator">
           <div className="wrapper">
-            <img src={event.clubImage.image} />
+            <img src={urlForImage(event.clubImage)} />
           </div>
           <p>
             <ins>Creation of</ins> {event.club}
