@@ -61,7 +61,13 @@ const EventCard = ({ event }) => {
   return (
     <div className="nft z-30 flex items-center cursor-pointer	">
       <div className="main w-full flex items-center gap-3">
-        <img className="tokenImage" src={event.eventImage.image} alt="image" />
+        <Link className="" href={`/events/${event._id}`}>
+          <img
+            className="tokenImage"
+            src={event.eventImage.image}
+            alt="image"
+          />
+        </Link>
         <div className="flex items-center w-full justify-between">
           <h2 className="title text-lg font-semibold">{event.eventTitle}</h2>
           <h2 className="title text-lg font-semibold">
@@ -69,13 +75,13 @@ const EventCard = ({ event }) => {
           </h2>
         </div>
 
-        <Link className="w-full" href={`/events/${event._id}`}>
+        {/* <Link className="w-full" href={`/events/${event._id}`}>
           <div className="tokenInfo w-full cursor-pointer hover:text-black">
             <button className="price text-[#ee83e5] hover:text-black duration-200 ease-in-out w-full text-center rounded-md hover:bg-[#ee83e5] ">
               Learn More
             </button>
           </div>
-        </Link>
+        </Link> */}
 
         <div
           className="tokenInfo w-full cursor-pointer hover:text-black"

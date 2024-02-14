@@ -3,24 +3,28 @@ import EventCard from "@/components/EventCard";
 import { getEventById } from "@/sanity/sanity.query";
 import React from "react";
 import Image from "next/image";
+import { useUserDetails } from "@/context/zustand";
+import { db } from "@/firebase";
+import { get, ref, set, update } from "firebase/database";
 
 /*<p>Name: {item.eventTitle}</p>
 			<p>ID: {item._id}</p> */
 const ListItem = ({ item }) => {
   return (
-    <div className="">
-      <div className="pt-[7%] pl-[7%] flex flex-col md:flex-row gap-10">
-        <div className=" pt-14 md:pt-2">
+    <div className="flex w-full items-center justify-center h-screen">
+      <div className=" flex flex-col max-w-5xl mx-auto md:flex-row gap-32">
+        <div className="">
           <Image
             src={item.eventImage.image}
-            height={500}
-            width={500}
+            height={350}
+            width={350}
             alt="eventimage"
           />
           <div className="flex flex-row justify-between">
-            <div>Club</div>
-            <div className="font-semibold hover:border-l-4 transition-all hover:font-bold outline-1 p-2 hover:bg-white hover:text-black ">
-              Add to cart
+            <div className="tokenInfo w-full cursor-pointer hover:text-black">
+              <button className="price text-[#ee83e5] hover:text-black duration-200 ease-in-out w-full text-center rounded-md hover:bg-[#ee83e5] ">
+                Add to Cart
+              </button>
             </div>
           </div>
         </div>
