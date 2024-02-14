@@ -13,11 +13,9 @@ export default function Page() {
   const { user } = useUserDetails();
   const [userDetails, setUserDetails] = useState(null);
   const [orders, setOrders] = useState([]);
-
-  console.log(orders);
   function createUserDetails() {
     console.log(userDetails);
-    set(ref(db, "users/" + user?.uid), {
+    set(ref(db, "users/" + user?.uid + "/Details"), {
       userDetails,
     });
     toast.success("Profile Updated");
@@ -25,10 +23,10 @@ export default function Page() {
 
   useEffect(() => {
     if (user) {
-      const userRef = ref(db, "users/" + user.uid + "/userDetails");
+      const userRef = ref(db, "users/" + user.uid + "/Details/userDetails");
       const fetchData = (snapshot) => {
         const data = snapshot.val();
-        if (snapshot.exists() && !userDetails.clg && !userDetails.phone) {
+        if (snapshot.exists() && !userDetails?.clg && !userDetails?.phone) {
           setUserDetails(data);
         }
       };
