@@ -3,12 +3,10 @@ import { useUserDetails } from "@/context/zustand";
 import { db } from "@/firebase";
 import { get, ref, set, update } from "firebase/database";
 import toast from "react-hot-toast";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 const EventCard = ({ event }) => {
 	const { user } = useUserDetails();
-	const router = useRouter();
 	const addToCart = () => {
 		const userId = user?.uid;
 		const userCartRef = ref(db, "users/" + userId);
@@ -61,12 +59,7 @@ const EventCard = ({ event }) => {
 	};
 
 	return (
-		<div
-			onClick={() => {
-				router.push(`/events/${event._id}`);
-			}}
-			className="nft flex items-center cursor-pointer	"
-		>
+		<div className="nft flex items-center cursor-pointer	">
 			<div className="main w-full flex items-center gap-3">
 				<img className="tokenImage" src={event.eventImage.image} alt="image" />
 				<div className="flex items-center w-full justify-between">
@@ -75,6 +68,15 @@ const EventCard = ({ event }) => {
 						₹ {event.registrationFee}
 					</h2>
 				</div>
+
+				<Link className="w-full" href={`/events/${event._id}`}>
+					<div className="tokenInfo w-full cursor-pointer hover:text-black">
+						<button className="price text-[#ee83e5] hover:text-black duration-200 ease-in-out w-full text-center rounded-md hover:bg-[#ee83e5] ">
+							Learn More
+						</button>
+					</div>
+				</Link>
+
 				<div
 					className="tokenInfo w-full cursor-pointer hover:text-black"
 					onClick={addToCart}
