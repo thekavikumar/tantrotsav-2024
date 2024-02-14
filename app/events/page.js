@@ -1,7 +1,7 @@
 import EventCard from "@/components/EventCard";
 import { getEvents } from "@/sanity/sanity.query";
 
-export const revalidate = 10;
+export const revalidate = 15;
 
 export default async function Page() {
   const events = await getEvents();

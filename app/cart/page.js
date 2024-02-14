@@ -95,7 +95,7 @@ function Page() {
       console.log("response from nodejs: ", response.data);
       const newW = window.open("", "_blank");
       newW.document.write(response.data);
-      const orderRef = ref(db, "orde xrs/" + orderId);
+      const orderRef = ref(db, "orders/" + orderId);
       toast.success("started");
       onValue(orderRef, (snapshot) => {
         if (snapshot.exists()) {

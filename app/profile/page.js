@@ -98,7 +98,7 @@ export default function Page() {
                   className="flex items-center gap-4 text-lg border-2 border-white rounded-md px-10 py-1 hover:bg-white hover:text-black duration-200 ease-in-out"
                 >
                   <HiArrowDownTray />
-                  Download Recipt
+                  Download Receipt
                 </button>
               </div>
               <div className="flex flex-col items-start justify-center gap-5 max-w-4xl">
