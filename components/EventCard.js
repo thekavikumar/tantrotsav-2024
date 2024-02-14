@@ -3,11 +3,10 @@ import { useUserDetails } from "@/context/zustand";
 import { db } from "@/firebase";
 import { get, ref, set, update } from "firebase/database";
 import toast from "react-hot-toast";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const EventCard = ({ event }) => {
   const { user } = useUserDetails();
-  const router = useRouter();
   const addToCart = () => {
     const userId = user?.uid;
     const userCartRef = ref(db, "users/" + userId);
@@ -69,16 +68,13 @@ const EventCard = ({ event }) => {
             ₹ {event.registrationFee}
           </h2>
         </div>
-        <div
-          className="tokenInfo w-full cursor-pointer hover:text-black"
-          onClick={() => {
-            router.push(`/events/${event._id}`);
-          }}
-        >
-          <button className="price text-[#ee83e5] hover:text-black duration-200 ease-in-out w-full text-center rounded-md hover:bg-[#ee83e5] ">
-            Learn More
-          </button>
-        </div>
+        <Link className="w-full" href={`/events/${event._id}`}>
+          <div className="tokenInfo w-full cursor-pointer hover:text-black">
+            <button className="price text-[#ee83e5] hover:text-black duration-200 ease-in-out w-full text-center rounded-md hover:bg-[#ee83e5] ">
+              Learn More
+            </button>
+          </div>
+        </Link>
         <div
           className="tokenInfo w-full cursor-pointer hover:text-black"
           onClick={addToCart}
