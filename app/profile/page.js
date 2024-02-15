@@ -8,6 +8,7 @@ import React, { useEffect, useState } from "react";
 import { HiArrowDownTray } from "react-icons/hi2";
 import { toast } from "react-hot-toast";
 import EventCard from "@/components/EventCard";
+import ProfileOrderCard from "@/components/ProfileOrderCard";
 
 export default function Page() {
   const { user } = useUserDetails();
@@ -140,10 +141,11 @@ export default function Page() {
             <div>
               <h1 className="text-3xl text-center font-bold my-14">ORDERS</h1>
               <div className="flex flex-wrap gap-6">
-                {orders?.map((order, index) => (
+                {orders.map((order, index) => (
                   <>
-                    <h1>{order?.orderId}</h1>
-                    <h1>{order?.amount}</h1>
+                    {order?.items.map((item, index) => (
+                      <ProfileOrderCard key={index} order={item} />
+                    ))}
                   </>
                 ))}
               </div>

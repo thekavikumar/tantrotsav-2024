@@ -16,9 +16,9 @@ const Pricing = () => {
   };
   return (
     <div className="h-screen max-w-xl text-white mx-auto ">
-      <form>
-        <div className="flex flex-col gap-8">
-          <div className="flex items-center gap-10 py-6 px-12 border-2 border-white rounded-lg w-full">
+      <form className="w-full">
+        <div className="flex flex-col w-full gap-8">
+          <div className="flex items-center gap-10 px-12 py-6 border-2 border-white rounded-lg w-full">
             <input
               type="radio"
               id="platinum"
@@ -26,9 +26,9 @@ const Pricing = () => {
               name="membership"
               className="h-5 w-5"
             />
-            <label htmlFor="platinum" className="">
+            <label htmlFor="platinum" className="w-full">
               <h3 className="text-2xl font-medium">PLATINUM PASS</h3>
-              <p className="text-sm text-gray-300">
+              <p className="text-sm text-gray-300 w-full">
                 Get 4 events for 300 rupees and a free workshop
               </p>
             </label>
