@@ -1,7 +1,16 @@
 "use client";
+import { useUserDetails } from "@/context/zustand";
+import { db } from "@/firebase";
+import { ref, set } from "firebase/database";
 import React, { useEffect, useRef } from "react";
 
 const Pricing = () => {
+	const { user } = useUserDetails();
+	const userId = user?.uid;
+	const userTierRef = ref(db, "users/" + userId + "/tier");
+	const handleTier = () => {
+		set(userTierRef, true);
+	};
 	return (
 		<div className="h-screen max-w-xl text-white mx-auto ">
 			<form>
@@ -58,6 +67,7 @@ const Pricing = () => {
 							value={0}
 							className="h-5 w-5"
 							name="membership"
+							checked
 						/>
 						<label htmlFor="normal" className="">
 							<h3 className="text-2xl font-medium">NORMAL PASS</h3>
@@ -66,6 +76,13 @@ const Pricing = () => {
 							</p>
 						</label>
 					</div>
+					<button
+						className="price text-[#ee83e5] border-2 border-[#ee83e5] py-3 font-semibold
+					hover:text-black duration-200 ease-in-out text-center rounded-md hover:bg-[#ee83e5]"
+						onClick={handleTier}
+					>
+						NEXT
+					</button>
 				</div>
 			</form>
 		</div>
