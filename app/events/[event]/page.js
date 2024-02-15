@@ -13,46 +13,74 @@ const ListItem = ({ item }) => {
   return (
     <div className="flex w-full items-center justify-center h-screen">
       <div className=" flex flex-col max-w-6xl mx-auto md:flex-row gap-32">
-        <div className="w-full h-full">
+        <div className="w-full pt-9 flex flex-col items-center justify-center h-full">
           <Image
             src={urlForImage(item.eventImage)}
             height={500}
             width={500}
-            alt="eventimage"
+            alt="eventImage"
           />
-          <div className="flex flex-row pt-6 justify-between">
+          <div className="flex w-full flex-row pt-6 justify-between">
             <button className="price border-2 px-5 py-3 border-[#ee83e5] text-[#ee83e5] hover:text-black duration-200 ease-in-out font-bold w-full text-center rounded-md hover:bg-[#ee83e5] ">
               Add to Cart
             </button>
           </div>
         </div>
-        <div className="flex flex-col gap-5 col-span-1 sm:row-span-1 pb-24 md: p-2">
+        <div className="flex share tracking-wide flex-col gap-5 col-span-1 sm:row-span-1 pb-24 md: p-2">
           <div>
-            <h1 className="text-3xl">{item.eventTitle}</h1>
+            <h1 className="text-4xl font-extrabold ">{item.eventTitle}</h1>
           </div>
           <div>
-            <p>{item.eventDescription}</p>
+            <p className="text-xl font-medium text-zinc-300">
+              {item.eventDescription}
+            </p>
           </div>
           <div className="flex flex-row gap-1">
-            <p>Registration Fee : {item.registrationFee}</p>
+            <p className="text-xl font-semibold">
+              Registration Fee :{" "}
+              <span className="text-lg text-zinc-300 font-medium">
+                {" "}
+                ₹ {item.registrationFee}
+              </span>
+            </p>
           </div>
           <div>
-            <p>Venue : {item.venue}</p>
+            <p className="text-xl font-semibold">
+              Venue :{" "}
+              <span className="font-medium text-zinc-300 text-lg">
+                {item.venue}
+              </span>
+            </p>
           </div>
           <div className="flex flex-row gap-10">
-            <div className="flex flex-col">
-              <p>First Price : </p>
-              <p>Second Price : </p>
-              <p>Third Price : </p>
-            </div>
-            <div className="flex flex-col">
-              <p>{item.firstPrice}</p>
-              <p>{item.secondPrice}</p>
-              <p>{item.thirdPrice}</p>
+            <div className="flex text-xl font-semibold flex-col">
+              <p>
+                First Price :{" "}
+                <span className="text-lg text-zinc-300 font-medium">
+                  ₹ {item.firstPrice}
+                </span>
+              </p>
+              <p>
+                Second Price :{" "}
+                <span className="text-lg text-zinc-300 font-medium">
+                  ₹ {item.secondPrice}
+                </span>
+              </p>
+              <p>
+                Third Price :{" "}
+                <span className="text-lg text-zinc-300 font-medium">
+                  ₹ {item.thirdPrice}
+                </span>
+              </p>
             </div>
           </div>
           <div className="flex flex-row gap-2 ">
-            <p>Hosted by : {item.club}</p>
+            <p className="text-xl font-semibold ">
+              Hosted by :{" "}
+              <span className="text-zinc-300 text-lg font-medium">
+                {item.club}
+              </span>
+            </p>
           </div>
         </div>
       </div>
