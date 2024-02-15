@@ -12,3 +12,8 @@ export const useUserDetails = create((set) => ({
   setUser: (user) => set((state) => ({ user: user })),
   signOutUser: () => set({ user: null }),
 }));
+
+export const useUserTier = create((set) => ({
+  userTier: false,
+  setUserTier: (userTier) => set((state) => ({ userTier: userTier })),
+}));
