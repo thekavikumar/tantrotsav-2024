@@ -16,7 +16,7 @@ function Page() {
   const [totalAmount, setTotalAmount] = useState(0);
   const { user } = useUserDetails();
   const userId = user?.uid;
-  const userCartRef = ref(db, "users/" + userId + "/cart/");
+  const userCartRef = ref(db, "users/" + userId + "/cart/cart/");
   useEffect(() => {
     // Fetch user cart data when the userCartRef changes
     const unsubscribe = onValue(userCartRef, (snapshot) => {
@@ -61,8 +61,6 @@ function Page() {
             // Assuming 'items' is an array within the cart
             orders: [...currentOrders.orders, newOrderItem],
           });
-          set(userCartRef, []);
-          setCart([]);
         } else {
           // No existing cart, create a new cart
           const newOrderItem = {
@@ -74,8 +72,6 @@ function Page() {
           };
 
           set(setProfileRef, newOrderItem);
-          set(userCartRef, []);
-          setCart([]);
         }
       })
       .catch((error) => {
@@ -106,6 +102,8 @@ function Page() {
           if (data?.orderStatus == "Success") {
             toast.success(`orderStatus: ${data?.orderStatus}`);
             addToProfile(data);
+            set(userCartRef, []);
+            setCart([]);
           } else if (
             data?.orderStatus == "Aborted" ||
             data?.orderStatus == "Failure"

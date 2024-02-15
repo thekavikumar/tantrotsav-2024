@@ -9,7 +9,7 @@ const CheckoutCard = ({ event }) => {
   const { user } = useUserDetails();
   const { setCart } = useCartDetails();
   const userId = user?.uid;
-  const userCartRef = ref(db, "users/" + userId + "/cart/");
+  const userCartRef = ref(db, "users/" + userId + "/cart/cart/");
   const updateCartRef = ref(db, "users/" + userId);
   const itemId = event.id;
 
