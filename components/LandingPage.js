@@ -1,11 +1,11 @@
 "use client";
 import Spline from "@splinetool/react-spline";
-
 import Image from "next/image";
 import React from "react";
 import ufo from "../components/ufo.png";
 import logo3 from "../components/logo3.png";
 import a1 from "../components/astronaut.png";
+import SocialMedia from "./SocialMedia";
 
 const LandingPage = () => {
 	return (
@@ -26,6 +26,7 @@ const LandingPage = () => {
 				src={ufo}
 				className="floatingaus absolute top-[200px] right-6 w-[160px] md:w-[250px] lg:top-[130px] lg:right-[380px] "
 			/>
+			<SocialMedia />
 		</div>
 	);
 };

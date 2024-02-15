@@ -1,4 +1,3 @@
-import SocialMedia from "@/components/SocialMedia";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { Toaster } from "react-hot-toast";
@@ -17,7 +16,7 @@ export default function RootLayout({ children }) {
 			<body className="bg-black text-white">
 				<ParticleWrapper>
 					<Navbar />
-					<SocialMedia />
+
 					<Toaster />
 					{children}
 				</ParticleWrapper>
