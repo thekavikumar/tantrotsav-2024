@@ -4,6 +4,8 @@ import { db } from "@/firebase";
 import { get, ref, set, update } from "firebase/database";
 import toast from "react-hot-toast";
 import Link from "next/link";
+import { urlForImage } from "@/sanity/lib/image";
+import Image from "next/image";
 
 const EventCard = ({ event }) => {
   const { user } = useUserDetails();
@@ -62,10 +64,12 @@ const EventCard = ({ event }) => {
     <div className="nft z-30 flex items-center cursor-pointer	">
       <div className="main w-full flex items-center gap-3">
         <Link className="" href={`/events/${event._id}`}>
-          <img
+          <Image
             className="tokenImage"
-            src={event.eventImage.image}
+            src={urlForImage(event.eventImage)}
             alt="image"
+            width={200}
+            height={200}
           />
         </Link>
         <div className="flex items-center w-full justify-between">
@@ -94,7 +98,7 @@ const EventCard = ({ event }) => {
         <hr />
         <div className="creator">
           <div className="wrapper">
-            <img src={event.clubImage.image} />
+            <img src={urlForImage(event.clubImage)} />
           </div>
           <p>
             <ins>Creation of</ins> {event.club}

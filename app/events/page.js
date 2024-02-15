@@ -1,11 +1,14 @@
 import EventCard from "@/components/EventCard";
-import { getEvents } from "@/sanity/sanity.query";
 
-export const revalidate = 15;
+export const revalidate = 0;
 
 export default async function Page() {
-  const events = await getEvents();
-
+  const query = encodeURIComponent(`*[_type == "event"]`);
+  const events = await fetch(
+    `https://hgcsqmwr.api.sanity.io/v2022-03-07/data/query/production?query=${query}`
+  )
+    .then((response) => response.json())
+    .then((data) => data.result);
   return (
     <main className="max-w-7xl mx-auto pt-28">
       {events && (
