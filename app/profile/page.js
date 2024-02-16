@@ -1,19 +1,20 @@
 "use client";
-
-import { useCartDetails, useUserDetails } from "@/context/zustand";
+import { useUserDetails } from "@/context/zustand";
 import { db } from "@/firebase";
 import { set, ref, onValue } from "firebase/database";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { HiArrowDownTray } from "react-icons/hi2";
-import { toast } from "react-hot-toast";
-import EventCard from "@/components/EventCard";
 import ProfileOrderCard from "@/components/ProfileOrderCard";
+import { toast } from "react-hot-toast";
+import MyDocument from "@/components/PdfGen";
+import { PDFDownloadLink } from "@react-pdf/renderer";
 
 export default function Page() {
   const { user } = useUserDetails();
   const [userDetails, setUserDetails] = useState(null);
   const [orders, setOrders] = useState([]);
+
   function createUserDetails() {
     console.log(userDetails);
     set(ref(db, "users/" + user?.uid + "/Details"), {
@@ -52,13 +53,9 @@ export default function Page() {
       const userOrderRef = ref(db, "users/" + user.uid + "/orders/");
 
       const fetchOrders = (snapshot) => {
-        if (snapshot.exists()) {
-          // The record exists at the specified path
-          const data = snapshot.val();
-          setOrders((prevOrders) => [...prevOrders, data]);
-        } else {
-          // The record does not exist at the specified path
-          console.log("Record does not exist");
+        const data = snapshot.val();
+        if (data) {
+          setOrders(Object.values(data));
         }
       };
 
@@ -79,13 +76,13 @@ export default function Page() {
       };
     }
   }, [user?.uid]);
-
+  console.log("orders: ", orders);
   return (
     <>
       {user ? (
         <div className="p-[130px]">
           <div>
-            <div className="flex justify-around items-center">
+            <div className="flex justify-around p-2 items-center">
               <div className="flex flex-col items-center justify-center gap-7">
                 <Image
                   src={user?.photoURL}
@@ -94,12 +91,21 @@ export default function Page() {
                   alt="profile"
                   className="rounded-md border-2 border-white p-1 w-full"
                 />
-                <button
-                  type="submit"
-                  className="flex items-center gap-4 text-lg border-2 border-white rounded-md px-10 py-1 hover:bg-white hover:text-black duration-200 ease-in-out"
-                >
-                  <HiArrowDownTray />
-                  Download Receipt
+                <button className=" border-2 border-white rounded-md px-10 py-1 hover:bg-white hover:text-black duration-200 ease-in-out">
+                  <PDFDownloadLink
+                    document={
+                      <MyDocument
+                        orders={orders[0]}
+                        userD={userDetails}
+                        user={user}
+                      />
+                    }
+                    fileName="Acknowledgement.pdf"
+                    className="flex items-center gap-4 text-lg"
+                  >
+                    <HiArrowDownTray />
+                    Download Receipt
+                  </PDFDownloadLink>
                 </button>
               </div>
               <div className="flex flex-col items-start justify-center gap-5 max-w-4xl">
@@ -141,13 +147,11 @@ export default function Page() {
             <div>
               <h1 className="text-3xl text-center font-bold my-14">ORDERS</h1>
               <div className="flex flex-wrap gap-6">
-                {orders.map((order, index) => (
-                  <>
-                    {order?.items.map((item, index) => (
-                      <ProfileOrderCard key={index} order={item} />
-                    ))}
-                  </>
-                ))}
+                {orders[0]?.map((cart, cartIndex) => {
+                  return cart?.items?.map((item, index) => {
+                    return <ProfileOrderCard order={item} key={index} />;
+                  });
+                })}
               </div>
             </div>
           </div>

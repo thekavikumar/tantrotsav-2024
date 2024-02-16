@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-pdf/renderer": "^3.3.8",
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^3.23.4",
     "@splinetool/react-spline": "^2.2.6",

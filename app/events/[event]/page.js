@@ -1,27 +1,83 @@
 "use client";
-import EventCard from "@/components/EventCard";
 import React from "react";
 import Image from "next/image";
+import { urlForImage } from "@/sanity/lib/image";
 import { useUserDetails } from "@/context/zustand";
 import { db } from "@/firebase";
 import { get, ref, set, update } from "firebase/database";
-import { urlForImage } from "@/sanity/lib/image";
+import toast from "react-hot-toast";
 
 /*<p>Name: {item.eventTitle}</p>
 			<p>ID: {item._id}</p> */
 const ListItem = ({ item }) => {
+  const { user } = useUserDetails();
+  const addToCart = () => {
+    const userId = user?.uid;
+    const userCartRef = ref(db, "users/" + userId + "/cart/");
+
+    // Use the get function to retrieve the data
+    get(userCartRef)
+      .then((snapshot) => {
+        if (snapshot.exists()) {
+          // User already has a cart, update the existing cart
+          const currentCart = snapshot.val();
+
+          const newCartItem = {
+            id: item._id,
+            eventImage: item.eventImage,
+            eventTitle: item.eventTitle,
+            registrationFee: item.registrationFee,
+            club: item.club,
+            clubImage: item.clubImage,
+          };
+
+          update(userCartRef, {
+            // Assuming 'items' is an array within the cart
+            cart: [...currentCart?.cart, newCartItem],
+          }).then(() => {
+            toast.success("Added to the cart!");
+          });
+        } else {
+          // No existing cart, create a new cart
+          const newCart = {
+            cart: [
+              {
+                id: item._id,
+                eventImage: item.eventImage,
+                eventTitle: item.eventTitle,
+                registrationFee: item.registrationFee,
+                club: item.club,
+                clubImage: item.clubImage,
+              },
+            ],
+          };
+
+          set(userCartRef, newCart).then(() => {
+            toast.success("Added to the cart!");
+          });
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
   return (
     <div className="flex w-full items-center justify-center h-screen">
       <div className=" flex flex-col max-w-6xl mx-auto md:flex-row gap-32">
         <div className="w-full pt-9 flex flex-col items-center justify-center h-full">
           <Image
             src={urlForImage(item.eventImage)}
-            height={500}
-            width={500}
+            height={300}
+            width={300}
             alt="eventImage"
+            className=""
           />
-          <div className="flex w-full flex-row pt-6 justify-between">
-            <button className="price border-2 px-5 py-3 border-[#ee83e5] text-[#ee83e5] hover:text-black duration-200 ease-in-out font-bold w-full text-center rounded-md hover:bg-[#ee83e5] ">
+          <div
+            className="flex w-full justify-center flex-row pt-6"
+            onClick={addToCart}
+          >
+            <button className="price border-2 px-5 py-3 border-[#ee83e5] text-[#ee83e5] hover:text-black duration-200 ease-in-out font-bold w-[300px] text-center rounded-md hover:bg-[#ee83e5] ">
               Add to Cart
             </button>
           </div>

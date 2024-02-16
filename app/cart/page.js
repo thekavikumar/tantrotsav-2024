@@ -40,29 +40,14 @@ function Page() {
 
   const addToProfile = (data) => {
     const userId = user?.uid;
-    const userProfileRef = ref(db, "users/" + userId);
     const setProfileRef = ref(db, "users/" + userId + "/orders/");
 
     // Use the get function to retrieve the data
     get(setProfileRef)
       .then((snapshot) => {
         if (snapshot.exists()) {
-          // User already has a cart, update the existing cart
+          // User already has orders, update the existing orders
           const currentOrders = snapshot.val();
-
-          const newOrderItem = {
-            orderId: data?.orderId,
-            trackingId: data?.trackingId,
-            orderStatus: data?.orderStatus,
-            items: cart,
-          };
-
-          update(setProfileRef, {
-            // Assuming 'items' is an array within the cart
-            orders: [...currentOrders.orders, newOrderItem],
-          });
-        } else {
-          // No existing cart, create a new cart
           const newOrderItem = {
             orderId: data?.orderId,
             trackingId: data?.trackingId,
@@ -71,7 +56,23 @@ function Page() {
             items: cart,
           };
 
-          set(setProfileRef, newOrderItem);
+          set(setProfileRef, {
+            // Append the new order to the existing orders list
+            orders: [...currentOrders.orders, newOrderItem],
+          });
+        } else {
+          // No existing orders, create a new list and add the order
+          const newOrderItem = {
+            orderId: data?.orderId,
+            trackingId: data?.trackingId,
+            orderStatus: data?.orderStatus,
+            amount: data?.amount,
+            items: cart,
+          };
+
+          set(setProfileRef, {
+            orders: [newOrderItem], // Create a new list with the order
+          });
         }
       })
       .catch((error) => {

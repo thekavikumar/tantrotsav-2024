@@ -51,7 +51,7 @@ export default function Navbar() {
 
 	return (
 		<div
-			className={`absolute z-50 w-full top-0 text-white flex items-center justify-between px-[10px] lg:px-[100px] py-5 transition-all duration-300 ${
+			className={`absolute z-50 w-full top-0 text-white flex items-center justify-between px-[15px] lg:px-[100px] py-5 transition-all duration-300 ${
 				isScrolled
 					? "bg-gray-600 bg-opacity-10 backdrop-filter shadow-2xl backdrop-blur-md bg-blur"
 					: "bg-transparent"
@@ -77,6 +77,17 @@ export default function Navbar() {
 				>
 					HOME
 				</Link>
+
+				<Link
+					href="#aboutR"
+					className={
+						pathname === "/about"
+							? "bg-white px-3  rounded-md text-black"
+							: "px-3  rounded-md hover:bg-white hover:text-black transition-all duration-300"
+					}
+				>
+					ABOUT
+				</Link>
 				<Link
 					href="/events"
 					className={
@@ -89,39 +100,27 @@ export default function Navbar() {
 				</Link>
 
 				<Link
-					href="#about"
+					href={`${user ? "/profile" : ""}`}
 					className={
-						pathname === "/about"
+						pathname === "/profile"
 							? "bg-white px-3  rounded-md text-black"
 							: "px-3  rounded-md hover:bg-white hover:text-black transition-all duration-300"
 					}
 				>
-					ABOUT
+					PROFILE
 				</Link>
-				{user && (
-					<Link
-						href="/profile"
-						className={
-							pathname === "/profile"
-								? "bg-white px-3  rounded-md text-black"
-								: "px-3  rounded-md hover:bg-white hover:text-black transition-all duration-300"
-						}
-					>
-						PROFILE
-					</Link>
-				)}
-				{user && (
-					<Link
-						href="/cart"
-						className={
-							pathname === "/cart"
-								? "bg-white px-3  rounded-md text-black"
-								: "px-3  rounded-md hover:bg-white hover:text-black transition-all duration-300"
-						}
-					>
-						CART
-					</Link>
-				)}
+
+				<Link
+					href={`${user ? "/cart" : ""}`}
+					className={
+						pathname === "/cart"
+							? "bg-white px-3  rounded-md text-black"
+							: "px-3  rounded-md hover:bg-white hover:text-black transition-all duration-300"
+					}
+				>
+					CART
+				</Link>
+
 				<Login />
 			</div>
 		</div>
