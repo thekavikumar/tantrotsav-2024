@@ -60,6 +60,8 @@ const EventCard = ({ event }) => {
       });
   };
 
+  console.log(urlForImage(event.eventImage));
+
   return (
     <div className="nft z-30 flex items-center cursor-pointer	">
       <div className="main w-full flex items-center gap-3">
