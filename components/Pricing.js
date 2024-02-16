@@ -5,7 +5,7 @@ import { ref, set } from "firebase/database";
 import React, { useEffect, useRef, useState } from "react";
 
 const Pricing = () => {
-	const [tierStatus, setTierStatus] = useState(0);
+	const [tierStatus, setTierStatus] = useState("0");
 	const { user } = useUserDetails();
 	const { setUserTier } = useUserTier();
 	const userId = user?.uid;
@@ -15,7 +15,6 @@ const Pricing = () => {
 	const handleTier = () => {
 		console.log(tierStatus);
 		set(userTierStatusRef, tierStatus);
-
 		set(userTierRef, true);
 		setUserTier(true);
 	};
@@ -31,10 +30,10 @@ const Pricing = () => {
 					<input
 						type="radio"
 						id="platinum"
-						value={4}
+						value={"4"}
 						name="membership"
 						className="h-5 w-5"
-						checked={tierStatus === 4}
+						checked={tierStatus === "4"}
 						onChange={onOptionChange}
 					/>
 					<label htmlFor="platinum" className="w-full cursor-pointer">
@@ -48,10 +47,10 @@ const Pricing = () => {
 					<input
 						type="radio"
 						id="gold"
-						value={3}
+						value={"3"}
 						className="h-5 w-5"
 						name="membership"
-						checked={tierStatus === 3}
+						checked={tierStatus === "3"}
 						onChange={onOptionChange}
 					/>
 					<label htmlFor="gold" className="w-full cursor-pointer">
@@ -65,10 +64,10 @@ const Pricing = () => {
 					<input
 						type="radio"
 						id="silver"
-						value={2}
+						value={"2"}
 						className="h-5 w-5"
 						name="membership"
-						checked={tierStatus === 2}
+						checked={tierStatus === "2"}
 						onChange={onOptionChange}
 					/>
 					<label htmlFor="silver" className="w-full cursor-pointer">
@@ -82,10 +81,10 @@ const Pricing = () => {
 					<input
 						type="radio"
 						id="normal"
-						value={0}
+						value={"0"}
 						className="h-5 w-5"
 						name="membership"
-						checked={tierStatus === 0}
+						checked={tierStatus === "0"}
 						onChange={onOptionChange}
 					/>
 					<label htmlFor="normal" className="w-full cursor-pointer">
