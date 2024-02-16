@@ -146,7 +146,7 @@ export default function Page() {
             <div className="flex items-center justify-start my-8"></div>
             <div>
               <h1 className="text-3xl text-center font-bold my-14">ORDERS</h1>
-              <div className="flex flex-wrap gap-6">
+              <div className="flex flex-wrap justify-center gap-6">
                 {orders[0]?.map((cart, cartIndex) => {
                   return cart?.items?.map((item, index) => {
                     return <ProfileOrderCard order={item} key={index} />;

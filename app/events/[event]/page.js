@@ -7,8 +7,6 @@ import { db } from "@/firebase";
 import { get, ref, set, update } from "firebase/database";
 import toast from "react-hot-toast";
 
-/*<p>Name: {item.eventTitle}</p>
-			<p>ID: {item._id}</p> */
 const ListItem = ({ item }) => {
   const { user } = useUserDetails();
   const addToCart = () => {
@@ -73,11 +71,12 @@ const ListItem = ({ item }) => {
             alt="eventImage"
             className=""
           />
-          <div
-            className="flex w-full justify-center flex-row pt-6"
-            onClick={addToCart}
-          >
-            <button className="price border-2 px-5 py-3 border-[#ee83e5] text-[#ee83e5] hover:text-black duration-200 ease-in-out font-bold w-[300px] text-center rounded-md hover:bg-[#ee83e5] ">
+          <div className="flex w-full justify-center flex-row pt-6">
+            <button
+              onClick={addToCart}
+              disabled={!user}
+              className="price border-2 px-5 py-3 border-[#ee83e5] text-[#ee83e5] hover:text-black duration-200 ease-in-out font-bold w-[300px] text-center rounded-md hover:bg-[#ee83e5] "
+            >
               Add to Cart
             </button>
           </div>
