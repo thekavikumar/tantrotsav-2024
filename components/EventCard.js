@@ -73,8 +73,10 @@ const EventCard = ({ event }) => {
           />
         </Link>
         <div className="flex items-center w-full justify-between">
-          <h2 className="title text-lg font-semibold">{event.eventTitle}</h2>
-          <h2 className="title text-lg font-semibold">
+          <h2 className="title text-lg truncate w-[70%] font-semibold">
+            {event.eventTitle}
+          </h2>
+          <h2 className="title text-lg w-fit font-semibold">
             ₹ {event.registrationFee}
           </h2>
         </div>

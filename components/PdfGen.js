@@ -1,4 +1,3 @@
-"use client";
 import {
   Document,
   Page,
@@ -7,8 +6,8 @@ import {
   StyleSheet,
   Image,
 } from "@react-pdf/renderer";
-import Amrita from "../components/amritalogo.png";
-import logo from "../components/logo1.png";
+import Amrita from "../components/R.png";
+import logo from "../components/logosans.png";
 
 const styles = StyleSheet.create({
   page: {
@@ -50,14 +49,14 @@ const styles = StyleSheet.create({
 function MyDocument({ orders, userD, user }) {
   return (
     <Document>
-      {orders.map((order, index) => (
-        <Page key={index} size="A4" style={styles.page}>
+      {orders?.map((order, orderIndex) => (
+        <Page key={orderIndex} size="A4" style={styles.page} wrap>
           <View style={styles.info}>
             <Image style={styles.amrita} src={Amrita} />
-            <Image style={styles.sans} src={logo} />
+            <Image style={styles.sans} src={Amrita} />
 
             <Text style={{ marginBottom: 10, marginTop: -23, fontSize: 13 }}>
-              Receipt ID: AVV/Tantrotsav24/{orders[0].orderId}
+              Receipt ID: AVV/Tantrotsav24/{order.orderId}
             </Text>
             <Text style={{ fontSize: 13, marginBottom: 5, marginTop: 20 }}>
               Participant Information
@@ -90,7 +89,7 @@ function MyDocument({ orders, userD, user }) {
                   left: "50px",
                 }}
               >
-                Purpose
+                Events
               </Text>
               <Text
                 style={{
@@ -111,60 +110,61 @@ function MyDocument({ orders, userD, user }) {
                   left: "480px",
                 }}
               >
-                Total Amount
+                Registration Fee
               </Text>
             </View>
 
-            <View
-              style={{
-                padding: 10,
-
-                position: "relative",
-                height: "30px",
-              }}
-            >
-              <Text
+            {order?.items?.map((item, itemIndex) => (
+              <View
+                key={itemIndex}
                 style={{
-                  fontSize: 13,
-                  position: "absolute",
-                  top: "5px",
-                  left: "10px",
+                  padding: 10,
+                  position: "relative",
+                  height: "30px",
                 }}
               >
-                1.
-              </Text>
-              <Text
-                style={{
-                  fontSize: 13,
-                  position: "absolute",
-                  top: "5px",
-                  left: "50px",
-                }}
-              >
-                {/* {event.data.name} */}
-                Tantrotsav Events
-              </Text>
-              <Text
-                style={{
-                  fontSize: 13,
-                  position: "absolute",
-                  top: "5px",
-                  left: "280px",
-                }}
-              >
-                05/03/2024 - 06/03/2024
-              </Text>
-              <Text
-                style={{
-                  fontSize: 13,
-                  position: "absolute",
-                  top: "5px",
-                  left: "480px",
-                }}
-              >
-                {"1000 rupees"}
-              </Text>
-            </View>
+                <Text
+                  style={{
+                    fontSize: 13,
+                    position: "absolute",
+                    top: "5px",
+                    left: "10px",
+                  }}
+                >
+                  {itemIndex + 1}.
+                </Text>
+                <Text
+                  style={{
+                    fontSize: 13,
+                    position: "absolute",
+                    top: "5px",
+                    left: "50px",
+                  }}
+                >
+                  {item.eventTitle} - {item.club}
+                </Text>
+                <Text
+                  style={{
+                    fontSize: 13,
+                    position: "absolute",
+                    top: "5px",
+                    left: "280px",
+                  }}
+                >
+                  05/03/2024 - 06/03/2024
+                </Text>
+                <Text
+                  style={{
+                    fontSize: 13,
+                    position: "absolute",
+                    top: "5px",
+                    left: "480px",
+                  }}
+                >
+                  Rs. {item.registrationFee}
+                </Text>
+              </View>
+            ))}
           </View>
 
           <Text
@@ -179,7 +179,7 @@ function MyDocument({ orders, userD, user }) {
               paddingRight: 0,
             }}
           >
-            This is a computer generated receipt, hence no signature required.
+            This is a computer-generated receipt, hence no signature required.
           </Text>
           <Text
             style={{
@@ -203,9 +203,19 @@ function MyDocument({ orders, userD, user }) {
             }}
           >
             <Text style={{ fontSize: 10 }}>
-              {
-                "Amrita Vishwa Vidyapeetham\nChennai Campus,\n337/1A, Vengal Village,\nThiruvallur Taluk & District - 601 103.\nTamil Nadu, India\nPhone: 1 800 425 90009\nEmail: btech@amrita.edu"
-              }
+              Amrita Vishwa Vidyapeetham
+              {"\n"}
+              Chennai Campus,
+              {"\n"}
+              337/1A, Vengal Village,
+              {"\n"}
+              Thiruvallur Taluk & District - 601 103.
+              {"\n"}
+              Tamil Nadu, India
+              {"\n"}
+              Phone: +91 9025313327
+              {"\n"}
+              Email: tantrotsav@ch.amrita.edu
             </Text>
             <Image style={{ height: 70, width: 300 }} src={logo} />
           </View>
