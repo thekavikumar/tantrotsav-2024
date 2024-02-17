@@ -2,7 +2,7 @@
 import { useCartDetails, useUserDetails } from "@/context/zustand";
 import { db } from "@/firebase";
 import { urlForImage } from "@/sanity/lib/image";
-import { get, ref, set, update } from "firebase/database";
+import { get, ref, update } from "firebase/database";
 import toast from "react-hot-toast";
 
 const CheckoutCard = ({ event }) => {

@@ -142,24 +142,26 @@ function Page() {
 
   return (
     <div className=" max-w-7xl pt-[100px] mx-auto">
-      <div className="flex items-center m-3 mb-6 w-full justify-between">
-        <h1 className="text-2xl font-semibold">
+      <div className="flex flex-col md:flex-row items-center m-3 mb-6 w-full justify-around">
+        <h1 className="text-2xl font-semibold p-2 text-center">
           Welcome to cart, {user?.displayName}
         </h1>
-        <div className="flex items-center gap-4">
-          <h1 className="text-lg">Total Amount: ₹ {totalAmount}</h1>
-          <form onSubmit={handleSubmit}>
-            <button
-              type="submit"
-              className="border-2 flex items-center gap-3 border-white rounded-md px-5 py-2 hover:bg-white hover:text-black duration-200 ease-in-out"
-            >
-              <IoBagCheckOutline />
-              Checkout
-            </button>
-          </form>
+        <div className="flex flex-col md:flex-row items-center gap-4 p-2">
+          <div className="flex flex-col md:flex-row items-center gap-4">
+            <h1 className="text-lg">Total Amount: ₹ {totalAmount}</h1>
+            <form onSubmit={handleSubmit}>
+              <button
+                type="submit"
+                className="border-2 flex items-center gap-3 border-white rounded-md px-20 md:px-5 py-2 hover:bg-white hover:text-black duration-200 ease-in-out"
+              >
+                <IoBagCheckOutline />
+                Checkout
+              </button>
+            </form>
+          </div>
           <button
             onClick={handleRemoveAll}
-            className="border-2 flex items-center gap-3 border-white rounded-md px-5 py-2 hover:bg-white hover:text-black duration-200 ease-in-out"
+            className="border-2 flex text-nowrap items-center gap-3 border-white rounded-md px-20 md:px-5 py-2 hover:bg-white hover:text-black duration-200 ease-in-out"
           >
             Remove All
           </button>
@@ -171,7 +173,7 @@ function Page() {
         </div>
       )}
       {cart.length > 0 && (
-        <div className=" flex items-center flex-wrap gap-12 ">
+        <div className=" flex items-center flex-wrap gap-6 justify-center pb-4 ">
           {cart?.map((item, index) => (
             <CheckoutCard event={item} key={index} />
             // You can add additional <p> elements for other properties

@@ -80,10 +80,10 @@ export default function Page() {
   return (
     <>
       {user ? (
-        <div className="p-[130px]">
+        <div className="pt-[130px]">
           <div>
-            <div className="flex justify-around p-2 items-center">
-              <div className="flex flex-col items-center justify-center gap-7">
+            <div className="flex justify-around p-2 items-center flex-col sm:flex-row">
+              <div className="flex flex-col items-center justify-center gap-7 py-4">
                 <Image
                   src={user?.photoURL}
                   width={200}
@@ -146,7 +146,7 @@ export default function Page() {
             <div className="flex items-center justify-start my-8"></div>
             <div>
               <h1 className="text-3xl text-center font-bold my-14">ORDERS</h1>
-              <div className="flex flex-wrap justify-center gap-6">
+              <div className="flex flex-wrap justify-center gap-6 pb-4">
                 {orders[0]?.map((cart, cartIndex) => {
                   return cart?.items?.map((item, index) => {
                     return <ProfileOrderCard order={item} key={index} />;
