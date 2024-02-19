@@ -63,7 +63,7 @@ const ListItem = ({ item }) => {
   return (
     <div className="flex w-full items-center justify-center h-screen">
       <div className=" flex flex-col max-w-6xl mx-auto md:flex-row gap-32">
-        <div className="w-full pt-9 flex flex-col items-center justify-center h-full">
+        <div className="w-full md:pt-9 pt-[50rem] flex flex-col items-center justify-center h-full">
           <Image
             src={urlForImage(item.eventImage)}
             height={300}
@@ -81,7 +81,7 @@ const ListItem = ({ item }) => {
             </button>
           </div>
         </div>
-        <div className="flex share tracking-wide flex-col gap-5 col-span-1 sm:row-span-1 pb-24 md: p-2">
+        <div className="flex share pl-11 md:pl-0 tracking-wide flex-col gap-5 col-span-1 sm:row-span-1 pb-24 md: p-2">
           <div>
             <h1 className="text-4xl font-extrabold ">{item.eventTitle}</h1>
           </div>
