@@ -83,14 +83,6 @@ const EventCard = ({ event }) => {
           </h2>
         </div>
 
-        {/* <Link className="w-full" href={`/events/${event._id}`}>
-          <div className="tokenInfo w-full cursor-pointer hover:text-black">
-            <button className="price text-[#ee83e5] hover:text-black duration-200 ease-in-out w-full text-center rounded-md hover:bg-[#ee83e5] ">
-              Learn More
-            </button>
-          </div>
-        </Link> */}
-
         <div
           className="tokenInfo w-full cursor-pointer hover:text-black"
           onClick={addToCart}

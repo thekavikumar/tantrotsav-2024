@@ -9,6 +9,11 @@ const nextConfig = {
       },
       {
         protocol: "https",
+        hostname: "firebasestorage.googleapis.com",
+        pathname: "**",
+      },
+      {
+        protocol: "https",
         hostname: "static-00.iconduck.com",
         pathname: "**",
       },
@@ -18,6 +23,9 @@ const nextConfig = {
         pathname: "**",
       },
     ],
+  },
+  compiler: {
+    removeConsole: process.env.NODE_ENV === "production",
   },
 };
 

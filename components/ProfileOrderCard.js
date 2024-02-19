@@ -14,8 +14,10 @@ const ProfileOrderCard = ({ order }) => {
         />
 
         <div className="flex items-center w-full justify-between">
-          <h2 className="title text-lg font-semibold">{order.eventTitle}</h2>
-          <h2 className="title text-lg font-semibold">
+          <h2 className="title text-lg truncate w-[70%] font-semibold">
+            {order.eventTitle}
+          </h2>
+          <h2 className="title text-lg w-fit font-semibold">
             ₹ {order.registrationFee}
           </h2>
         </div>
