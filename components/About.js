@@ -1,5 +1,5 @@
 import React from "react";
-import aboutimage from "../components/aboutimage.png";
+import about1 from "../components/about1.png";
 import aboutimage1 from "../components/aboutimage1.png";
 import Image from "next/image";
 
@@ -14,7 +14,7 @@ function About() {
 					<Image
 						id="tan-logo"
 						className=" mx-auto md:w-[550px] rounded-lg "
-						src={aboutimage}
+						src={about1}
 						alt="tantrotsav"
 					/>
 
