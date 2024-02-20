@@ -83,12 +83,11 @@ const EventCard = ({ event }) => {
 
 				<div
 					className="tokenInfo w-full cursor-pointer hover:text-black"
-					onClick={addToCart}
+					onClick={
+						user ? addToCart : () => toast.error("Please login to add to cart")
+					}
 				>
-					<button
-						disabled={user ? false : true}
-						className="price text-[#ee83e5] hover:text-black duration-200 ease-in-out w-full text-center rounded-md hover:bg-[#ee83e5] "
-					>
+					<button className="price text-[#ee83e5] hover:text-black duration-200 ease-in-out w-full text-center rounded-md hover:bg-[#ee83e5] ">
 						Add to Cart
 					</button>
 				</div>
