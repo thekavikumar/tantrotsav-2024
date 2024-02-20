@@ -1,5 +1,4 @@
 "use client";
-import Spline from "@splinetool/react-spline";
 import Image from "next/image";
 import React from "react";
 import SocialMedia from "./SocialMedia";
@@ -7,7 +6,7 @@ import Link from "next/link";
 
 const LandingPage = () => {
   return (
-    <div className="relative h-screen w-screen ">
+    <div className="relative z-20 h-screen w-screen ">
       <div className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] w-[350px] md:w-auto">
         {/* <Spline
           scene="https://prod.spline.design/gTGVvXhoIrBSb1bg/scene.splinecode"

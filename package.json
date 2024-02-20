@@ -12,7 +12,6 @@
     "@react-pdf/renderer": "^3.3.8",
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^3.23.4",
-    "@splinetool/react-spline": "^2.2.6",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tsparticles/react": "^3.0.0",
     "@tsparticles/slim": "^3.2.1",
