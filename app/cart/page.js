@@ -122,18 +122,18 @@ function Page() {
 		}
 	};
 
-	// useEffect(() => {
-	// 	// Calculate totalFee whenever cart changes
-	// 	const newTotalFee = cart.reduce(
-	// 		(total, item) => total + parseInt(item.registrationFee, 10),
-	// 		0
-	// 	);
+	useEffect(() => {
+		// Calculate totalFee whenever cart changes
+		const newTotalFee = cart.reduce(
+			(total, item) => total + parseInt(item.registrationFee, 10),
+			0
+		);
 
-	// 	// Update totalAmount only if it has changed
-	// 	if (newTotalFee !== totalAmount) {
-	// 		setTotalAmount(newTotalFee);
-	// 	}
-	// }, [cart, totalAmount]);
+		// Update totalAmount only if it has changed
+		if (newTotalFee !== totalAmount) {
+			setTotalAmount(newTotalFee);
+		}
+	}, [cart, totalAmount]);
 
 	function handleRemoveAll() {
 		const userCartRef = ref(db, "users/" + userId + "/cart/");
