@@ -30,7 +30,7 @@ const LandingPage = () => {
             <button className="price text-[#ee83e5] hover:text-black duration-300 ease-in-out px-5 py-2 md:px-5 md:py-2 border-2 border-[#ee83e5] text-center rounded-md hover:bg-[#ee83e5] ">
               <Link href="#aboutR">About Us</Link>
             </button>
-            <button className="text-black bg-white px-2 py-2 md:px-5 md:py-2 border-2 border-white duration-300 ease-in-out text-center rounded-md hover:bg-transparent hover:text-white">
+            <button className=" text-black bg-white px-2 py-2 md:px-5 md:py-2 border-2 border-white duration-300 ease-in-out text-center rounded-md hover:bg-transparent hover:text-white">
               <Link href="/events">Register Now</Link>
             </button>
           </div>
