@@ -171,3 +171,17 @@
 		transform: translate(0, -0px);
 	}
 }
+
+html::-webkit-scrollbar {
+	width: 8px;
+}
+
+html::-webkit-scrollbar-track {
+	background: rgb(0, 0, 0);
+	border-radius: 10px;
+}
+
+html::-webkit-scrollbar-thumb {
+	background: rgb(255, 255, 255);
+	border-radius: 10px;
+}

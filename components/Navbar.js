@@ -8,6 +8,7 @@ import { useUserDetails } from "@/context/zustand";
 import { FaBars } from "react-icons/fa6";
 import logo1 from "./logo2.png";
 import Image from "next/image";
+import amritalogo from "./amritawhite.png";
 
 export default function Navbar() {
 	const { user, setUser } = useUserDetails();
