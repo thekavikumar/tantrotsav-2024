@@ -113,6 +113,12 @@ export default function Navbar() {
 
 				<Login />
 			</div>
+			<Image
+				src={amritalogo}
+				width={120}
+				alt="logo"
+				className="hidden lg:block"
+			/>
 		</div>
 	);
 }
