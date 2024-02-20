@@ -1,12 +1,10 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import EventCard from "@/components/EventCard";
-import { useUserDetails } from "@/context/zustand";
 
 export const revalidate = 0;
 
 export default function Page() {
-  const { user } = useUserDetails();
   const [events, setEvents] = useState([]);
   const [filter, setFilter] = useState("all");
 

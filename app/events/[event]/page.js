@@ -1,64 +1,63 @@
-"use client";
-import React, { useEffect } from "react";
+import React from "react";
 import Image from "next/image";
 import { urlForImage } from "@/sanity/lib/image";
-import { useUserDetails } from "@/context/zustand";
-import { auth, db } from "@/firebase";
-import { get, ref, set, update } from "firebase/database";
-import toast from "react-hot-toast";
+// import { useUserDetails } from "@/context/zustand";
+// import { db } from "@/firebase";
+// import { get, ref, set, update } from "firebase/database";
+// import toast from "react-hot-toast";
 
 const ListItem = ({ item }) => {
-  const { user, setUser } = useUserDetails();
+  //   const { user } = useUserDetails();
 
-  const addToCart = () => {
-    const userId = user?.uid;
-    const userCartRef = ref(db, "users/" + userId + "/cart/");
-    // Use the get function to retrieve the data
-    get(userCartRef)
-      .then((snapshot) => {
-        if (snapshot.exists()) {
-          // User already has a cart, update the existing cart
-          const currentCart = snapshot.val();
+  //   const addToCart = () => {
+  //     const userId = user?.uid;
+  //     const userCartRef = ref(db, "users/" + userId + "/cart/");
+  //     // Use the get function to retrieve the data
+  //     get(userCartRef)
+  //       .then((snapshot) => {
+  //         if (snapshot.exists()) {
+  //           // User already has a cart, update the existing cart
+  //           const currentCart = snapshot.val();
 
-          const newCartItem = {
-            id: item._id,
-            eventImage: item.eventImage,
-            eventTitle: item.eventTitle,
-            registrationFee: item.registrationFee,
-            club: item.club,
-            clubImage: item.clubImage,
-          };
+  //           const newCartItem = {
+  //             id: item._id,
+  //             eventImage: item.eventImage,
+  //             eventTitle: item.eventTitle,
+  //             registrationFee: item.registrationFee,
+  //             club: item.club,
+  //             clubImage: item.clubImage,
+  //           };
 
-          update(userCartRef, {
-            // Assuming 'items' is an array within the cart
-            cart: [...currentCart?.cart, newCartItem],
-          }).then(() => {
-            toast.success("Added to the cart!");
-          });
-        } else {
-          // No existing cart, create a new cart
-          const newCart = {
-            cart: [
-              {
-                id: item._id,
-                eventImage: item.eventImage,
-                eventTitle: item.eventTitle,
-                registrationFee: item.registrationFee,
-                club: item.club,
-                clubImage: item.clubImage,
-              },
-            ],
-          };
+  //           update(userCartRef, {
+  //             // Assuming 'items' is an array within the cart
+  //             cart: [...currentCart?.cart, newCartItem],
+  //           }).then(() => {
+  //             toast.success("Added to the cart!");
+  //           });
+  //         } else {
+  //           // No existing cart, create a new cart
+  //           const newCart = {
+  //             cart: [
+  //               {
+  //                 id: item._id,
+  //                 eventImage: item.eventImage,
+  //                 eventTitle: item.eventTitle,
+  //                 registrationFee: item.registrationFee,
+  //                 club: item.club,
+  //                 clubImage: item.clubImage,
+  //               },
+  //             ],
+  //           };
 
-          set(userCartRef, newCart).then(() => {
-            toast.success("Added to the cart!");
-          });
-        }
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
+  //           set(userCartRef, newCart).then(() => {
+  //             toast.success("Added to the cart!");
+  //           });
+  //         }
+  //       })
+  //       .catch((error) => {
+  //         console.error(error);
+  //       });
+  //   };
 
   return (
     <div className="flex w-full items-center justify-center h-screen">
