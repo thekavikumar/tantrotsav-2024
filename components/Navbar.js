@@ -90,7 +90,7 @@ export default function Navbar() {
 				</Link>
 
 				<Link
-					href={`${user ? "/profile" : ""}`}
+					href={"/profile"}
 					className={
 						pathname === "/profile"
 							? "bg-white px-3  rounded-md text-black"
@@ -101,7 +101,7 @@ export default function Navbar() {
 				</Link>
 
 				<Link
-					href={`${user ? "/cart" : ""}`}
+					href={"/cart"}
 					className={
 						pathname === "/cart"
 							? "bg-white px-3  rounded-md text-black"
@@ -113,6 +113,12 @@ export default function Navbar() {
 
 				<Login />
 			</div>
+			<Image
+				src={amritalogo}
+				width={120}
+				alt="logo"
+				className="hidden lg:block"
+			/>
 		</div>
 	);
 }
