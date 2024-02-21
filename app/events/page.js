@@ -37,6 +37,8 @@ export default function Page() {
           <option value="all">All</option>
           <option value="Technical">Technical</option>
           <option value="Non-Technical">Non Technical</option>
+          <option value="Workshop">Workshop</option>
+          <option value="Show">Show</option>
         </select>
       </div>
       <div className="flex flex-wrap justify-center items-center gap-6 pb-4">
