@@ -82,7 +82,7 @@ export default function Page() {
       {user ? (
         <div className="pt-[130px]">
           <div>
-            <div className="flex z-50 md:relative justify-around p-2 items-center flex-col sm:flex-row">
+            <div className="flex z-50 relative justify-around p-2 items-center flex-col sm:flex-row">
               <div className="flex flex-col items-center justify-center gap-7 py-4">
                 <Image
                   src={user?.photoURL}

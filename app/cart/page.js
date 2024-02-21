@@ -143,8 +143,8 @@ function Page() {
   return (
     <>
       {user ? (
-        <div className=" max-w-7xl pt-[100px] mx-auto">
-          <div className="flex z-50 md:relative flex-col md:flex-row items-center m-3 mb-6 w-full justify-around">
+        <div className=" max-w-7xl z-10 relative pt-[100px] mx-auto">
+          <div className="flex flex-col md:flex-row items-center m-3 mb-6 w-full justify-around">
             <h1 className="text-2xl font-semibold p-2 text-center">
               Welcome to cart, {user?.displayName}
             </h1>
