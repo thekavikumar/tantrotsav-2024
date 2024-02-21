@@ -132,11 +132,11 @@ const ListItem = ({ item }) => {
             <p className="text-xl font-semibold ">
               Hosted by :{" "}
               <span className="text-zinc-300 text-lg font-medium">
-                {item.club}
+                {item.rulebook}
               </span>
             </p>
           </div>
-          {item.rulebook && (
+          {item?.rulebook && (
             <Link
               className="cursor-pointer px-3 py-2 bg-transparent border-2 border-white hover:bg-white hover:text-black text-white rounded-md hover:scale-105 transition-all duration-500 ease-in-out font-bold w-[300px] text-center"
               href={item?.rulebook}
