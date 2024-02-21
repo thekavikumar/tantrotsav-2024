@@ -68,7 +68,7 @@ const ListItem = ({ item }) => {
             height={300}
             width={300}
             alt="eventImage"
-            className="object-cover rounded-md"
+            className="object-cover rounded-md hover:scale-125 transition-all duration-500 cursor-pointer"
           />
           {/* <div className="flex w-full justify-center flex-row pt-6">
             <button
