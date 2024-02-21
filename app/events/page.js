@@ -27,7 +27,7 @@ export default function Page() {
 
   return (
     <main className="max-w-7xl mx-auto pt-28">
-      <div className="flex w-full items-center justify-center md:justify-end mb-5 -ml-2 gap-3">
+      <div className="flex z-50 md:relative items-center justify-center md:justify-end mb-5 -ml-2 gap-3">
         <h1 className="font-medium text-lg">Choose Filter:</h1>
         <select
           className="border border-gray-300 bg-white text-black rounded px-3 py-1"
