@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { urlForImage } from "@/sanity/lib/image";
+import Link from "next/link";
 // import { useUserDetails } from "@/context/zustand";
 // import { db } from "@/firebase";
 // import { get, ref, set, update } from "firebase/database";
@@ -61,7 +62,7 @@ const ListItem = ({ item }) => {
 
   return (
     <div className="flex w-full items-center justify-center h-screen">
-      <div className=" flex flex-col max-w-6xl mx-auto md:flex-row gap-32">
+      <div className=" flex md:relative z-50 flex-col max-w-6xl mx-auto md:flex-row gap-32">
         <div className="w-full md:pt-16 pt-[50rem] flex flex-col items-center justify-center h-full">
           <Image
             src={urlForImage(item.eventImage)}
@@ -135,6 +136,15 @@ const ListItem = ({ item }) => {
               </span>
             </p>
           </div>
+          {item.rulebook && (
+            <Link
+              className="cursor-pointer px-3 py-2 bg-transparent border-2 border-white hover:bg-white hover:text-black text-white rounded-md hover:scale-105 transition-all duration-500 ease-in-out font-bold w-[300px] text-center"
+              href={item?.rulebook}
+              target="_blank"
+            >
+              Download Rulebook
+            </Link>
+          )}
         </div>
       </div>
     </div>
