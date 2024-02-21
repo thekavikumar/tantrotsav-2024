@@ -7,6 +7,8 @@ import Link from "next/link";
 // import { get, ref, set, update } from "firebase/database";
 // import toast from "react-hot-toast";
 
+export const revalidate = 0;
+
 const ListItem = ({ item }) => {
   //   const { user } = useUserDetails();
 
