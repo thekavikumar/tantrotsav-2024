@@ -93,6 +93,24 @@ const ListItem = ({ item }) => {
           </div>
           <div className="flex flex-row gap-1">
             <p className="text-xl font-semibold">
+              Event Date :{" "}
+              <span className="text-lg text-zinc-300 font-medium">
+                {" "}
+                {item.date}
+              </span>
+            </p>
+          </div>
+          <div className="flex flex-row gap-1">
+            <p className="text-xl font-semibold">
+              Time :{" "}
+              <span className="text-lg text-zinc-300 font-medium">
+                {" "}
+                {item.time}
+              </span>
+            </p>
+          </div>
+          <div className="flex flex-row gap-1">
+            <p className="text-xl font-semibold">
               Registration Fee :{" "}
               <span className="text-lg text-zinc-300 font-medium">
                 {" "}
