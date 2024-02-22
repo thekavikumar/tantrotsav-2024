@@ -22,7 +22,7 @@ const ListItem = ({ item }) => {
           <div>
             <h1 className="text-4xl font-extrabold ">{item.eventTitle}</h1>
           </div>
-          <div>
+          <div className="text-justify">
             <p className="text-xl font-medium text-zinc-300">
               {item.eventDescription}
             </p>
