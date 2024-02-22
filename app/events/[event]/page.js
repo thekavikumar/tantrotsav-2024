@@ -2,69 +2,13 @@ import React from "react";
 import Image from "next/image";
 import { urlForImage } from "@/sanity/lib/image";
 import Link from "next/link";
-// import { useUserDetails } from "@/context/zustand";
-// import { db } from "@/firebase";
-// import { get, ref, set, update } from "firebase/database";
-// import toast from "react-hot-toast";
 
 export const revalidate = 0;
 
 const ListItem = ({ item }) => {
-  //   const { user } = useUserDetails();
-
-  //   const addToCart = () => {
-  //     const userId = user?.uid;
-  //     const userCartRef = ref(db, "users/" + userId + "/cart/");
-  //     // Use the get function to retrieve the data
-  //     get(userCartRef)
-  //       .then((snapshot) => {
-  //         if (snapshot.exists()) {
-  //           // User already has a cart, update the existing cart
-  //           const currentCart = snapshot.val();
-
-  //           const newCartItem = {
-  //             id: item._id,
-  //             eventImage: item.eventImage,
-  //             eventTitle: item.eventTitle,
-  //             registrationFee: item.registrationFee,
-  //             club: item.club,
-  //             clubImage: item.clubImage,
-  //           };
-
-  //           update(userCartRef, {
-  //             // Assuming 'items' is an array within the cart
-  //             cart: [...currentCart?.cart, newCartItem],
-  //           }).then(() => {
-  //             toast.success("Added to the cart!");
-  //           });
-  //         } else {
-  //           // No existing cart, create a new cart
-  //           const newCart = {
-  //             cart: [
-  //               {
-  //                 id: item._id,
-  //                 eventImage: item.eventImage,
-  //                 eventTitle: item.eventTitle,
-  //                 registrationFee: item.registrationFee,
-  //                 club: item.club,
-  //                 clubImage: item.clubImage,
-  //               },
-  //             ],
-  //           };
-
-  //           set(userCartRef, newCart).then(() => {
-  //             toast.success("Added to the cart!");
-  //           });
-  //         }
-  //       })
-  //       .catch((error) => {
-  //         console.error(error);
-  //       });
-  //   };
-
   return (
     <div className="flex w-full pt-28 relative z-30 items-center justify-center h-screen">
-      <div className=" flex  flex-col max-w-6xl mx-auto md:flex-row gap-32">
+      <div className=" flex flex-col md:pt-[100px] max-w-6xl mx-auto md:flex-row gap-32">
         <div className="w-full md:pt-16 pt-[50rem] flex flex-col items-center justify-center h-full">
           <Image
             src={urlForImage(item.eventImage)}
@@ -73,16 +17,8 @@ const ListItem = ({ item }) => {
             alt="eventImage"
             className="object-cover z-50 rounded-md hover:scale-125 transition-all duration-500 cursor-pointer"
           />
-          {/* <div className="flex w-full justify-center flex-row pt-6">
-            <button
-              onClick={addToCart}
-              className="price border-2 px-5 py-3 border-[#ee83e5] text-[#ee83e5] hover:text-black duration-200 ease-in-out font-bold w-[300px] text-center rounded-md hover:bg-[#ee83e5] "
-            >
-              Add to Cart
-            </button>
-          </div> */}
         </div>
-        <div className="flex share pl-11 md:pl-0 tracking-wide flex-col gap-5 col-span-1 sm:row-span-1 pb-24 lg:mt-14 lg:min-w-[724px]">
+        <div className="flex share pl-11 md:pl-0 tracking-wide flex-col gap-5 col-span-1 sm:row-span-1 pb-24 lg:mt-14 lg:min-w-[724px] flex-1">
           <div>
             <h1 className="text-4xl font-extrabold ">{item.eventTitle}</h1>
           </div>
