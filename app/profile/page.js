@@ -151,9 +151,7 @@ export default function Page() {
                       })
                     }
                     className="outline-none rounded-md bg-transparent border border-white hover:ring-2 hover:ring-white text-white focus:ring-2 focus:ring-white px-2 py-1 text-sm"
-                    style={{
-                      width: "310px",
-                    }}
+                   
                   >
                     <option className="text-black" value="No Need">
                       No Need
