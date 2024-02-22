@@ -63,8 +63,8 @@ const ListItem = ({ item }) => {
   //   };
 
   return (
-    <div className="flex w-full items-center justify-center h-screen">
-      <div className=" flex relative z-50 flex-col max-w-6xl mx-auto md:flex-row gap-32">
+    <div className="flex w-full relative z-30 items-center justify-center h-screen">
+      <div className=" flex  flex-col max-w-6xl mx-auto md:flex-row gap-32">
         <div className="w-full md:pt-16 pt-[50rem] flex flex-col items-center justify-center h-full">
           <Image
             src={urlForImage(item.eventImage)}
