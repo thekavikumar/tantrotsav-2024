@@ -28,7 +28,12 @@ export default function Page() {
       const userRef = ref(db, "users/" + user.uid + "/Details/userDetails");
       const fetchData = (snapshot) => {
         const data = snapshot.val();
-        if (snapshot.exists() && !userDetails?.clg && !userDetails?.phone) {
+        if (
+          snapshot.exists() &&
+          !userDetails?.clg &&
+          !userDetails?.phone &&
+          !userDetails?.busRoute
+        ) {
           setUserDetails(data);
         }
       };
@@ -134,6 +139,32 @@ export default function Page() {
                       setUserDetails({ ...userDetails, phone: e.target.value })
                     }
                   />
+                </div>
+                <div className="flex gap-4 text-lg w-full">
+                  <p className="w-full">Bus Route:</p>
+                  <select
+                    value={userDetails?.busRoute}
+                    onChange={(e) =>
+                      setUserDetails({
+                        ...userDetails,
+                        busRoute: e.target.value,
+                      })
+                    }
+                    className="outline-none rounded-md bg-transparent border border-white hover:ring-2 hover:ring-white text-white focus:ring-2 focus:ring-white px-2 py-1 text-sm"
+                    style={{
+                      width: "310px",
+                    }}
+                  >
+                    <option className="text-black" value="No Need">
+                      No Need
+                    </option>
+                    <option className="text-black" value="Route 1">
+                      Route 1
+                    </option>
+                    <option className="text-black" value="Route 2">
+                      Route 2
+                    </option>
+                  </select>
                 </div>
                 <button
                   className="w-full text-lg mt-3 border-2  border-white rounded-md px-3 py-1 hover:bg-white hover:text-black duration-200 ease-in-out text-center"
