@@ -111,6 +111,17 @@ export default function Navbar() {
           CART
         </Link>
 
+        <Link
+          href={"/travel"}
+          className={
+            pathname === "/travel"
+              ? "bg-white px-3  rounded-md text-black uppercase"
+              : "px-3  rounded-md hover:bg-white hover:text-black uppercase transition-all duration-300"
+          }
+        >
+          Accommodation & Travel
+        </Link>
+
         <Login />
       </div>
       <Image
