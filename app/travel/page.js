@@ -22,14 +22,16 @@ function Page() {
       <div className="flex flex-col justify-center text-justify p-6">
         <h1 className="text-4xl font-semibold text-center">Accommodation</h1>
         <p className="text-lg max-w-3xl mx-auto font-normal text-justify mt-4">
-          First Come, First Serve: Our accommodation is provided on a
-          first-come, first-serve basis. We recommend booking early to secure
-          your spot and avoid any inconvenience.
+          <span className="font-bold text-xl">First Come, First Serve: </span>
+          Our accommodation is provided on a first-come, first-serve basis. We
+          recommend booking early to secure your spot and avoid any
+          inconvenience.
         </p>
         <p className="text-lg max-w-3xl mx-auto font-normal text-justify mt-4">
-          Facilities: Our accommodation facilities include clean and spacious
-          bathrooms, and access to Food lounge Food: We provide delicious and
-          nutritious meals for our guests.{" "}
+          <span className="font-bold text-xl">Facilities: </span>
+          Our accommodation facilities include clean and spacious bathrooms, and
+          access to Food lounge Food: We provide delicious and nutritious meals
+          for our guests.{" "}
         </p>
         <p className="text-lg max-w-3xl mx-auto font-normal text-justify mt-4">
           Our menu includes a variety of options to cater to different dietary
@@ -38,16 +40,18 @@ function Page() {
           have any special requests.{" "}
         </p>
         <p className="text-lg max-w-3xl mx-auto font-normal text-justify mt-4">
-          Security: Your safety and security are our top priorities. Our
-          accommodation is monitored by security personnel, and we have strict
-          access control measures in place to ensure a safe and comfortable
-          environment for all our guests.{" "}
+          <span className="font-bold text-xl">Security: </span>
+          Your safety and security are our top priorities. Our accommodation is
+          monitored by security personnel, and we have strict access control
+          measures in place to ensure a safe and comfortable environment for all
+          our guests.{" "}
         </p>
         <p className="text-lg max-w-3xl mx-auto font-normal text-justify mt-4">
-          Booking: To book your accommodation, please contact us directly(phone
-          number: +917010962506). We look forward to welcoming you and providing
-          you with a memorable experience! Please feel free to reach out to us
-          if you have any questions or need further information. We are here to
+          <span className="font-bold text-xl">Booking: </span>
+          To book your accommodation, please contact us directly(phone number:
+          +917010962506). We look forward to welcoming you and providing you
+          with a memorable experience! Please feel free to reach out to us if
+          you have any questions or need further information. We are here to
           help and ensure that you have a pleasant stay with us.
         </p>
       </div>
