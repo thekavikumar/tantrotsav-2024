@@ -3,18 +3,23 @@ import React from "react";
 function Page() {
   return (
     <div className=" max-w-7xl z-10 relative pt-[100px] mx-auto">
-      <div className="flex flex-col justify-center text-justify">
+      <div className="flex flex-col justify-center text-justify p-6">
         <h1 className="text-4xl font-semibold text-center">Travel</h1>
         <p className="text-lg max-w-3xl mx-auto font-normal text-justify mt-4">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-          euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan
-          et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis
-          natoque penatibus et magnis dis parturient montes, nascetur ridiculus
-          mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus
-          mollis orci, sed rhoncus sapien nunc eget odio.
+          <span className="font-bold text-xl">Route 1: </span>egmore → nehru
+          park → kilpauk → pachaiappas → dpi → ampa skywalk → shanti colony →
+          roundana → k4 → icf south colony → icf rail museum → nathamuni → sidco
+          → padi → drj → senthil → temple school → retteri → madhavaram → puzhal
+          → redhills → alamathi → edapakkam → tamaraipakkam → vengal
+        </p>
+        <p className="text-lg max-w-3xl mx-auto font-normal text-justify mt-4">
+          <span className="font-bold text-xl">Route 2: </span>kilambakam →
+          vandaloor → mudichoor → varadarajapiuram toll gate → tirumudivakkam →
+          kundrathur → mata engineering college → nazarethpet → nemilicheri →
+          tiruninravur → pakkam → tamaraipakkam → vengal
         </p>
       </div>
-      <div className="flex flex-col justify-center text-justify">
+      <div className="flex flex-col justify-center text-justify p-6">
         <h1 className="text-4xl font-semibold text-center">Accommodation</h1>
         <p className="text-lg max-w-3xl mx-auto font-normal text-justify mt-4">
           First Come, First Serve: Our accommodation is provided on a
