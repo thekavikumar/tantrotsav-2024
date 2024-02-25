@@ -32,7 +32,8 @@ export default function Page() {
           snapshot.exists() &&
           !userDetails?.clg &&
           !userDetails?.phone &&
-          !userDetails?.busRoute
+          !userDetails?.busRoute &&
+          !userDetails?.name
         ) {
           setUserDetails(data);
         }
@@ -114,9 +115,16 @@ export default function Page() {
                 </button>
               </div>
               <div className="flex flex-col items-start justify-center gap-5 max-w-4xl">
-                <div className="flex gap-4 text-xl">
-                  <p className="">Name:</p>
-                  <p>{user?.displayName}</p>
+                <div className="flex gap-4 text-lg w-full">
+                  <p className="w-full">Name:</p>
+                  <input
+                    type="text"
+                    value={userDetails?.name}
+                    className="outline-none items-end rounded-md bg-transparent border border-white hover:ring-2 hover:ring-white focus:ring-2 focus:ring-white px-2 py-1 text-sm"
+                    onChange={(e) =>
+                      setUserDetails({ ...userDetails, name: e.target.value })
+                    }
+                  />
                 </div>
                 <div className="flex gap-4 text-lg w-full">
                   <p className="w-full">College Name:</p>

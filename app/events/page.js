@@ -41,6 +41,10 @@ export default function Page() {
           <option value="Show">Show</option>
         </select>
       </div>
+      <h1 className="text-center mb-5">
+        ⚠️ Note: Make sure to enter your details in profile page before
+        ordering!
+      </h1>
       <div className="flex flex-wrap justify-center items-center gap-6 pb-4">
         {events
           .filter((event) =>
