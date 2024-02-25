@@ -132,7 +132,7 @@ export default function Page() {
                 <div className="flex gap-4 text-lg w-full">
                   <p className="w-full">Phone Number:</p>
                   <input
-                    type="number"
+                    type="text"
                     value={userDetails?.phone}
                     className="outline-none rounded-md bg-transparent border border-white hover:ring-2 hover:ring-white focus:ring-2 focus:ring-white px-2 py-1 text-sm"
                     onChange={(e) =>
@@ -151,7 +151,6 @@ export default function Page() {
                       })
                     }
                     className="outline-none rounded-md bg-transparent border border-white hover:ring-2 hover:ring-white text-white focus:ring-2 focus:ring-white px-2 py-1 text-sm"
-                   
                   >
                     <option className="text-black" value="No Need">
                       No Need
@@ -161,6 +160,9 @@ export default function Page() {
                     </option>
                     <option className="text-black" value="Route 2">
                       Route 2
+                    </option>
+                    <option className="text-black" value="Other Route">
+                      Other Route
                     </option>
                   </select>
                 </div>
