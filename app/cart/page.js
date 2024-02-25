@@ -170,6 +170,10 @@ function Page() {
               </button>
             </div>
           </div>
+          <h1 className="text-center mb-5">
+            ⚠️ Note: Make sure to enter your details in profile page before
+            ordering!
+          </h1>
           {cart.length === 0 && (
             <div className="flex items-center justify-center h-[70vh]">
               <h1 className="text-3xl font-semibold">No items in the cart</h1>
