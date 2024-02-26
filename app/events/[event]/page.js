@@ -19,6 +19,10 @@ const ListItem = ({ item }) => {
           />
         </div>
         <div className="flex share pl-11 md:pl-0 tracking-wide flex-col gap-5 col-span-1 sm:row-span-1 pb-24 lg:mt-14 lg:min-w-[724px] flex-1">
+          <h1 className=" font-bold mb-5">
+            ⚠️ Note: Make sure to enter your details in profile page before
+            ordering!
+          </h1>
           <div>
             <h1 className="text-4xl font-extrabold ">{item.eventTitle}</h1>
           </div>

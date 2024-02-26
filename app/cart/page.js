@@ -170,7 +170,7 @@ function Page() {
               </button>
             </div>
           </div>
-          <h1 className="text-center mb-5">
+          <h1 className="text-center font-bold mb-5">
             ⚠️ Note: Make sure to enter your details in profile page before
             ordering!
           </h1>
