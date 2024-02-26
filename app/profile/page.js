@@ -17,6 +17,13 @@ export default function Page() {
 
   function createUserDetails() {
     console.log(userDetails);
+    if (userDetails?.busRoute !== "Other Route" && userDetails?.otherRoute) {
+      // Set otherRoute to null
+      setUserDetails((prevDetails) => ({
+        ...prevDetails,
+        otherRoute: null,
+      }));
+    }
     set(ref(db, "users/" + user?.uid + "/Details"), {
       userDetails,
     });
@@ -33,7 +40,8 @@ export default function Page() {
           !userDetails?.clg &&
           !userDetails?.phone &&
           !userDetails?.busRoute &&
-          !userDetails?.name
+          !userDetails?.name &&
+          !userDetails?.accommodation
         ) {
           setUserDetails(data);
         }
@@ -172,6 +180,42 @@ export default function Page() {
                     </option>
                     <option className="text-black" value="Other Route">
                       Other Route
+                    </option>
+                  </select>
+                </div>
+                {userDetails?.busRoute === "Other Route" && (
+                  <div className="flex gap-4 text-lg w-full">
+                    <p className="w-full">Other Route:</p>
+                    <input
+                      type="text"
+                      value={userDetails?.otherRoute}
+                      className="outline-none rounded-md bg-transparent border border-white hover:ring-2 hover:ring-white focus:ring-2 focus:ring-white px-2 py-1 text-sm"
+                      onChange={(e) =>
+                        setUserDetails({
+                          ...userDetails,
+                          otherRoute: e.target.value,
+                        })
+                      }
+                    />
+                  </div>
+                )}
+                <div className="flex gap-4 text-lg w-full">
+                  <p className="w-full">Accommodation:</p>
+                  <select
+                    value={userDetails?.accommodation}
+                    onChange={(e) =>
+                      setUserDetails({
+                        ...userDetails,
+                        accommodation: e.target.value,
+                      })
+                    }
+                    className="outline-none rounded-md bg-transparent border border-white hover:ring-2 hover:ring-white text-white focus:ring-2 focus:ring-white px-2 py-1 text-sm"
+                  >
+                    <option className="text-black" value="Not Required">
+                      Not Required
+                    </option>
+                    <option className="text-black" value="Required">
+                      Required
                     </option>
                   </select>
                 </div>
