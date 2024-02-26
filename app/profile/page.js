@@ -35,14 +35,7 @@ export default function Page() {
       const userRef = ref(db, "users/" + user.uid + "/Details/userDetails");
       const fetchData = (snapshot) => {
         const data = snapshot.val();
-        if (
-          snapshot.exists() &&
-          !userDetails?.clg &&
-          !userDetails?.phone &&
-          !userDetails?.busRoute &&
-          !userDetails?.name &&
-          !userDetails?.accommodation
-        ) {
+        if (snapshot.exists()) {
           setUserDetails(data);
         }
       };
@@ -59,7 +52,7 @@ export default function Page() {
         unsubscribe();
       };
     }
-  }, [user?.uid, userDetails]);
+  }, [user?.uid]);
 
   // for orders
   useEffect(() => {
@@ -169,6 +162,9 @@ export default function Page() {
                     }
                     className="outline-none rounded-md bg-transparent border border-white hover:ring-2 hover:ring-white text-white focus:ring-2 focus:ring-white px-2 py-1 text-sm"
                   >
+                    <option className="text-black" value="select">
+                      Select
+                    </option>
                     <option className="text-black" value="No Need">
                       No Need
                     </option>
@@ -211,6 +207,9 @@ export default function Page() {
                     }
                     className="outline-none rounded-md bg-transparent border border-white hover:ring-2 hover:ring-white text-white focus:ring-2 focus:ring-white px-2 py-1 text-sm"
                   >
+                    <option className="text-black" value="select">
+                      Select
+                    </option>
                     <option className="text-black" value="Not Required">
                       Not Required
                     </option>
