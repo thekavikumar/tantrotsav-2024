@@ -69,19 +69,19 @@ const ListItem = ({ item }) => {
           <div className="flex flex-row gap-10">
             <div className="flex text-xl font-semibold flex-col">
               <p>
-                First Price :{" "}
+                First Prize :{" "}
                 <span className="text-lg text-zinc-300 font-medium">
                   ₹ {item.firstPrice}
                 </span>
               </p>
               <p>
-                Second Price :{" "}
+                Second Prize :{" "}
                 <span className="text-lg text-zinc-300 font-medium">
                   ₹ {item.secondPrice}
                 </span>
               </p>
               <p>
-                Third Price :{" "}
+                Third Prize :{" "}
                 <span className="text-lg text-zinc-300 font-medium">
                   ₹ {item.thirdPrice}
                 </span>
