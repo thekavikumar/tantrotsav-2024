@@ -34,14 +34,12 @@ function Page() {
           <span className="font-bold text-xl text-white">Facilities: </span>
           Our accommodation facilities include clean and spacious bathrooms, and
           access to Food lounge Food: We provide delicious and nutritious meals
-          for our guests.{" "}
+          for our guests. Our menu includes a variety of options to cater to
+          different dietary preferences and requirements. We also offer special
+          meals for guests with specific dietary needs, so please let us know in
+          advance if you have any special requests.{" "}
         </p>
-        <p className="text-lg max-w-3xl mx-auto font-normal text-zinc-400 text-justify mt-4">
-          Our menu includes a variety of options to cater to different dietary
-          preferences and requirements. We also offer special meals for guests
-          with specific dietary needs, so please let us know in advance if you
-          have any special requests.{" "}
-        </p>
+
         <p className="text-lg max-w-3xl mx-auto font-normal text-zinc-400 text-justify mt-4">
           <span className="font-bold text-xl text-white">Security: </span>
           Your safety and security are our top priorities. Our accommodation is
