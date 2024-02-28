@@ -17,3 +17,14 @@ export const useUserTier = create((set) => ({
   userTier: false,
   setUserTier: (userTier) => set((state) => ({ userTier: userTier })),
 }));
+
+export const useUserDetailsStore = create((set) => ({
+  userDetails: null,
+  setUserDetails: (newDetails) =>
+    set((state) => ({
+      userDetails: {
+        ...state.userDetails,
+        ...newDetails,
+      },
+    })),
+}));

@@ -268,13 +268,22 @@ export default function Page() {
             <div className="flex items-center justify-start my-8"></div>
             <div>
               <h1 className="text-3xl text-center font-bold my-14">ORDERS</h1>
-              <div className="flex flex-wrap justify-center gap-6 pb-4">
-                {orders[0]?.map((cart, cartIndex) => {
-                  return cart?.items?.map((item, index) => {
-                    return <ProfileOrderCard order={item} key={index} />;
-                  });
-                })}
-              </div>
+              {orders.length === 0 ? (
+                <div>
+                  <h1 className="text-center -mt-8">
+                    You haven't placed any orders yet. Please place an order to
+                    view here
+                  </h1>
+                </div>
+              ) : (
+                <div className="flex flex-wrap justify-center gap-6 pb-4">
+                  {orders[0]?.map((cart, cartIndex) => {
+                    return cart?.items?.map((item, index) => {
+                      return <ProfileOrderCard order={item} key={index} />;
+                    });
+                  })}
+                </div>
+              )}
             </div>
           </div>
         </div>

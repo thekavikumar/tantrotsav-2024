@@ -17,6 +17,32 @@ function Page() {
   const { user } = useUserDetails();
   const userId = user?.uid;
   const userCartRef = ref(db, "users/" + userId + "/cart/cart/");
+  const [userDetials, setUserDetails] = useState(null);
+
+  useEffect(() => {
+    if (user) {
+      const userRef = ref(db, "users/" + user.uid + "/Details/userDetails");
+      const fetchData = (snapshot) => {
+        const data = snapshot.val();
+        if (snapshot.exists()) {
+          setUserDetails(data);
+        }
+      };
+
+      const errorCallback = (error) => {
+        console.error("Error fetching data:", error);
+      };
+
+      // Set up the Firebase subscription
+      const unsubscribe = onValue(userRef, fetchData, errorCallback);
+
+      // Clean up the subscription when the component unmounts
+      return () => {
+        unsubscribe();
+      };
+    }
+  }, [user?.uid]);
+
   useEffect(() => {
     // Fetch user cart data when the userCartRef changes
     const unsubscribe = onValue(userCartRef, (snapshot) => {
@@ -84,6 +110,11 @@ function Page() {
     e.preventDefault();
     try {
       console.log("started");
+
+      if (!userDetials) {
+        toast.error("Please fill your details in profile page before ordering");
+        return;
+      }
 
       const response = await axios.post(
         "https://ccavenuesoff.vercel.app/ccavRequestHandler",
