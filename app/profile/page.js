@@ -196,6 +196,45 @@ export default function Page() {
                   </div>
                 )}
                 <div className="flex gap-4 text-lg w-full">
+                  <p className="w-full">Are you Amrita Student:</p>
+                  <select
+                    value={userDetails?.amrita}
+                    onChange={(e) =>
+                      setUserDetails({
+                        ...userDetails,
+                        amrita: e.target.value,
+                      })
+                    }
+                    className="outline-none rounded-md bg-transparent border border-white hover:ring-2 hover:ring-white text-white focus:ring-2 focus:ring-white px-2 py-1 text-sm"
+                  >
+                    <option className="text-black" value="select">
+                      Select
+                    </option>
+                    <option className="text-black" value="Yes">
+                      Yes
+                    </option>
+                    <option className="text-black" value="No">
+                      No
+                    </option>
+                  </select>
+                </div>
+                {userDetails?.amrita === "Yes" && (
+                  <div className="flex gap-4 text-lg w-full">
+                    <p className="w-full">Your Roll Number:</p>
+                    <input
+                      type="text"
+                      value={userDetails?.rollNumber}
+                      className="outline-none rounded-md bg-transparent border border-white hover:ring-2 hover:ring-white focus:ring-2 focus:ring-white px-2 py-1 text-sm"
+                      onChange={(e) =>
+                        setUserDetails({
+                          ...userDetails,
+                          rollNumber: e.target.value,
+                        })
+                      }
+                    />
+                  </div>
+                )}
+                <div className="flex gap-4 text-lg w-full">
                   <p className="w-full">Accommodation:</p>
                   <select
                     value={userDetails?.accommodation}
