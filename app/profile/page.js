@@ -196,7 +196,7 @@ export default function Page() {
                   </div>
                 )}
                 <div className="flex gap-4 text-lg w-full">
-                  <p className="w-full">Are you Amrita Student:</p>
+                  <p className="w-full">Are you Amrita Chennai Student:</p>
                   <select
                     value={userDetails?.amrita}
                     onChange={(e) =>
