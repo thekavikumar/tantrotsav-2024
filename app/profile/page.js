@@ -220,7 +220,7 @@ export default function Page() {
                 </div>
                 {userDetails?.amrita === "Yes" && (
                   <div className="flex gap-4 text-lg w-full">
-                    <p className="w-full">Your Roll Number:</p>
+                    <p className="w-full">Your Roll Number(CH.EN.U4XXXXX):</p>
                     <input
                       type="text"
                       value={userDetails?.rollNumber}
