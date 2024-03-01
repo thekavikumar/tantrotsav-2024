@@ -29,7 +29,7 @@ function Page() {
           </span>
           Our accommodation is provided on a first-come, first-serve basis. We
           recommend booking early to secure your spot and avoid any
-          inconvenience. The accommodation fee is 300 INR per person per day. We
+          inconvenience. The accommodation fee is 200 INR per person per day. We
           only accept bulk bookings.
         </p>
 
