@@ -10,6 +10,10 @@ import Image from "next/image";
 const EventCard = ({ event }) => {
   const { user } = useUserDetails();
   const addToCart = () => {
+    if (event.seatFull) {
+      toast.error("Seats are full for this event.");
+      return;
+    }
     const userId = user?.uid;
     const userCartRef = ref(db, "users/" + userId + "/cart");
 
