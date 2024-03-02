@@ -29,8 +29,11 @@ function Page() {
           </span>
           Our accommodation is provided on a first-come, first-serve basis. We
           recommend booking early to secure your spot and avoid any
-          inconvenience. The accommodation fee is 200 INR per person per day. We
-          only accept bulk bookings.
+          inconvenience.{" "}
+          <span className="font-bold ">
+            The accommodation fee is 100 INR per person per day
+          </span>
+          . We only accept bulk bookings.
         </p>
 
         <p className="text-lg max-w-3xl mx-auto font-normal text-zinc-400 text-justify mt-4">
