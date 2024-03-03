@@ -25,15 +25,15 @@ const LandingPage = () => {
             Unlocking Galaxies of Innovation: Tantrotsav - Amrita Chennai's
             Largest Techfest
           </h3>
-          <div
-            className="flex z-50 flex-col md:flex-row gap-2 md:gap-5 justify-center items-center md:text-lg font-medium mt-2 md:mt-5"
-            onClick={() => {
-              window.open(
-                "https://firebasestorage.googleapis.com/v0/b/tantrotsav-3d852.appspot.com/o/Event_Details.pdf?alt=media&token=cd57d48a-d033-49b8-b728-fdb1935c6bd7"
-              );
-            }}
-          >
-            <button className="price text-[#ee83e5] hover:text-black duration-300 ease-in-out px-5 py-2 md:px-5 md:py-2 border-2 border-[#ee83e5] text-center rounded-md hover:bg-[#ee83e5] ">
+          <div className="flex z-50 flex-col md:flex-row gap-2 md:gap-5 justify-center items-center md:text-lg font-medium mt-2 md:mt-5">
+            <button
+              className="price text-[#ee83e5] hover:text-black duration-300 ease-in-out px-5 py-2 md:px-5 md:py-2 border-2 border-[#ee83e5] text-center rounded-md hover:bg-[#ee83e5] "
+              onClick={() => {
+                window.open(
+                  "https://firebasestorage.googleapis.com/v0/b/tantrotsav-3d852.appspot.com/o/Event_Details.pdf?alt=media&token=cd57d48a-d033-49b8-b728-fdb1935c6bd7"
+                );
+              }}
+            >
               Master Schedule
             </button>
             <button className=" text-black bg-white px-2 py-2 md:px-5 md:py-2 border-2 border-white duration-300 ease-in-out text-center rounded-md hover:bg-transparent hover:text-white">
