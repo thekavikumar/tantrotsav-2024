@@ -171,9 +171,6 @@ export default function Page() {
                     <option className="text-black" value="Route 1">
                       Route 1
                     </option>
-                    <option className="text-black" value="Route 2">
-                      Route 2
-                    </option>
                     <option className="text-black" value="Other Route">
                       Other Route
                     </option>

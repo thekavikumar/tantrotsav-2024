@@ -13,13 +13,6 @@ function Page() {
           madhavaram → puzhal → redhills → alamathi → edapakkam → tamaraipakkam
           → Amrita Vishwa Vidyapeetham, Chennai
         </p>
-        <p className="text-lg max-w-3xl mx-auto uppercase text-zinc-400 font-normal text-justify mt-4">
-          <span className="font-bold text-xl text-white">Route 2: </span>
-          kilambakam → vandaloor → mudichoor → varadarajapiuram toll gate →
-          tirumudivakkam → kundrathur → mata engineering college → nazarethpet →
-          nemilicheri → tiruninravur → pakkam → tamaraipakkam → Amrita Vishwa
-          Vidyapeetham, Chennai
-        </p>
       </div>
       <div className="flex flex-col justify-center text-justify p-6">
         <h1 className="text-4xl font-semibold text-center">Accommodation</h1>
