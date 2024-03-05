@@ -11,7 +11,7 @@ const EventCard = ({ event }) => {
   const { user } = useUserDetails();
   const addToCart = () => {
     if (event.seatFull) {
-      toast.error("Seats are full for this event.");
+      toast.error("On Spot Registrations only available!");
       return;
     }
     const userId = user?.uid;
