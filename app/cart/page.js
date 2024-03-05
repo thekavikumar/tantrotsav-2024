@@ -108,6 +108,8 @@ function Page() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    toast.error("On Spot Registrations only available!");
+    return;
     try {
       console.log("started");
 
