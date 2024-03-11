@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Tantrotsav - National Level Tecfest Website
 
-## Getting Started
+Welcome to Tantrotsav, the national-level tecfest website where innovation meets celebration! Tantrotsav is designed to be a dynamic platform for tech enthusiasts, providing them with opportunities to showcase their skills, compete, and learn from the best in the field.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Innovative Design:** Tantrotsav boasts a sleek and modern design crafted with ReactJS and TailwindCSS, offering an immersive user experience.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Seamless Payment Integration:** With our integrated payment gateway, participants can easily register and make payments for events, workshops, and merchandise, facilitating over 4000 successful transactions.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- **Event Management:** Manage and showcase various events, workshops, and competitions with ease. Participants can register for their preferred events hassle-free.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- **Real-time Updates:** Stay updated with real-time notifications about event schedules, changes, and announcements, ensuring a smooth experience for both organizers and participants.
 
-## Learn More
+- **Dynamic Admin Panel:** The intuitive admin panel built with NodeJS allows organizers to manage events, registrations, and payments efficiently.
 
-To learn more about Next.js, take a look at the following resources:
+## Tech Stack
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Frontend:** ReactJS, TailwindCSS
+- **Backend:** NodeJS
+- **Database:** Firebase
+- **Payment Gateway:** Integrated Payment Gateway (ccavenues)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Installation
 
-## Deploy on Vercel
+To run Tantrotsav locally, follow these steps:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Clone the repository:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+   ```
+   git clone https://github.com/thekavikumar/tantrotsav.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```
+   cd tantrotsav
+   ```
+
+3. Install dependencies:
+
+   ```
+   npm install
+   ```
+
+4. Start the development server:
+
+   ```
+   npm start
+   ```
+
+
+## Contact
+
+For any inquiries or support, please contact us at [kavikumarceo@example.com](mailto:kavikumarceo@example.com).
+
+---
+
+Thank you for considering Tantrotsav for your tecfest needs. Let's innovate, learn, and celebrate together!
